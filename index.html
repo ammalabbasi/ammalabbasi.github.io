@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Ammal Abbasi</title>
+<meta name="description" content="Ammal Abbasi, PhD: computational cancer genomics, mutational signatures and the cancer microbiome. Postdoctoral Scholar, Alexandrov Lab, UC San Diego.">
+<meta property="og:title" content="Ammal Abbasi, Computational Cancer Genomics">
+<meta property="og:description" content="Mutational signatures, microbial genotoxins and early-onset colorectal cancer. Alexandrov Lab, UC San Diego.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230e6b6b'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='15' fill='white' text-anchor='middle'%3EAA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --ink: #1c1c1e;
+    --ink-2: #4a4a50;
+    --ink-3: #7a7a82;
+    --rule: #e8e5de;
+    --accent: #0e6b6b;
+    --accent-soft: #e4f1ef;
+    --warm: #b4532a;
+    --warm-soft: #fbece4;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(20,20,20,.04), 0 6px 24px rgba(20,20,20,.05);
+    /* COSMIC SBS-6 colours */
+    --ca: #1ebff0; --cg: #050708; --ct: #e62725; --ta: #cbcacb; --tc: #a1ce63; --tg: #edc8c5;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-weight: 300; font-size: 16px; line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  b, strong { font-weight: 500; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(251,250,247,.88); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; }
+  nav .brand { font-weight: 500; color: var(--ink); letter-spacing: .01em; }
+  nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
+  nav ul a { color: var(--ink-2); }
+  nav ul a:hover { color: var(--accent); text-decoration: none; }
+
+  /* hero */
+  .hero { display: grid; grid-template-columns: 220px 1fr; gap: 44px; align-items: center; padding: 64px 0 40px; }
+  .photo {
+    width: 220px; height: 220px; border-radius: 50%; overflow: hidden; position: relative;
+    background: linear-gradient(135deg, var(--accent) 0%, #2f8f86 55%, var(--warm) 100%);
+    box-shadow: var(--shadow);
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo .mono {
+    position: absolute; inset: 0; display: grid; place-items: center;
+    color: #fff; font-size: 64px; font-weight: 500; letter-spacing: .02em;
+  }
+  .greeting { color: var(--warm); font-weight: 500; font-size: 15px; margin: 0 0 4px; letter-spacing: .04em; }
+  h1 { font-size: 46px; font-weight: 600; line-height: 1.1; margin: 0 0 10px; letter-spacing: -.01em; }
+  .title { font-size: 18px; color: var(--ink-2); margin: 0 0 18px; }
+  .title a { font-weight: 400; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 6px 14px; border-radius: 999px; font-size: 13.5px; font-weight: 400;
+    border: 1px solid var(--rule); background: var(--surface); color: var(--ink-2);
+    transition: border-color .15s, color .15s, transform .15s;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; transform: translateY(-1px); }
+  .chip svg { width: 15px; height: 15px; fill: currentColor; }
+
+  /* bio + news */
+  .bio-news { display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; padding: 20px 0 56px; }
+  .bio p { margin: 0 0 16px; }
+  .bio .lede { font-family: "Source Serif 4", Georgia, serif; font-size: 21px; line-height: 1.55; color: var(--ink); font-weight: 400; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .tag { font-size: 12.5px; padding: 3px 11px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 400; }
+  .news { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow); align-self: start; }
+  .news h3 { margin: 0 0 12px; font-size: 15px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+  .news ul { list-style: none; margin: 0; padding: 0; max-height: 420px; overflow-y: auto; }
+  .news li { display: grid; grid-template-columns: 64px 1fr; gap: 10px; padding: 10px 0; border-top: 1px solid var(--rule); font-size: 14px; line-height: 1.55; }
+  .news li:first-child { border-top: 0; padding-top: 0; }
+  .news .date { color: var(--warm); font-weight: 500; font-variant-numeric: tabular-nums; font-size: 13px; }
+  .news .pill { display: inline-block; font-size: 11px; font-weight: 500; padding: 0 7px; border-radius: 6px; background: var(--warm-soft); color: var(--warm); margin-right: 4px; }
+
+  /* sections */
+  section { padding: 56px 0; border-top: 1px solid var(--rule); }
+  .sec-head { margin-bottom: 28px; }
+  h2 { font-size: 30px; font-weight: 600; margin: 0 0 6px; letter-spacing: -.01em; }
+  .sub { color: var(--ink-2); margin: 0; }
+
+  /* research themes */
+  .themes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .theme { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+  .theme::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--c, var(--accent)); }
+  .theme .k { font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--c, var(--accent)); }
+  .theme h4 { margin: 4px 0 8px; font-size: 18px; font-weight: 500; line-height: 1.35; }
+  .theme p { margin: 0 0 10px; font-size: 14.5px; color: var(--ink-2); }
+  .theme .rep { font-size: 13px; color: var(--ink-3); }
+
+  /* software */
+  .tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .tool { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+  .tool .name { font-weight: 600; font-size: 17px; margin: 0 0 2px; }
+  .tool .meta { font-size: 12.5px; color: var(--ink-3); margin-bottom: 10px; }
+  .tool p { font-size: 14px; color: var(--ink-2); margin: 0 0 14px; flex: 1; }
+  .tool .acts { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tool .acts a { font-size: 13px; font-weight: 400; }
+
+  /* publications */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+  .filters button {
+    font: inherit; font-size: 13.5px; font-weight: 400; cursor: pointer;
+    padding: 6px 14px; border-radius: 999px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink-2);
+  }
+  .filters button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .pubs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .pub { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; transition: transform .15s, box-shadow .15s; }
+  .pub:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(20,20,20,.05), 0 12px 32px rgba(20,20,20,.08); }
+  .pub .spec { height: 92px; background: #fcfcfb; border-bottom: 1px solid var(--rule); padding: 12px 14px 8px; }
+  .pub .spec svg { width: 100%; height: 100%; display: block; }
+  .pub .body { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
+  .pub .venue { font-size: 12px; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; color: var(--accent); }
+  .pub .venue .role { color: var(--warm); margin-left: 6px; }
+  .pub h4 { margin: 4px 0 8px; font-size: 15.5px; font-weight: 500; line-height: 1.4; }
+  .pub h4 a { color: var(--ink); }
+  .pub .auth { font-size: 12.5px; color: var(--ink-3); margin: 0 0 12px; flex: 1; }
+  .pub .auth b { color: var(--ink); }
+  .pub .plinks { display: flex; gap: 12px; font-size: 12.5px; }
+
+  .full { margin-top: 30px; }
+  .full summary { cursor: pointer; font-weight: 500; color: var(--accent); list-style: none; }
+  .full summary::-webkit-details-marker { display: none; }
+  .full summary::before { content: "+ "; }
+  .full[open] summary::before { content: "– "; }
+  .full ol { padding-left: 22px; margin: 18px 0 0; }
+  .full li { margin-bottom: 10px; font-size: 14px; color: var(--ink-2); }
+  .full li b { color: var(--ink); }
+  .full h5 { margin: 22px 0 6px; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; }
+
+  /* cv */
+  .cv { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .cv h3 { font-size: 15px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 14px; }
+  .tl { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--rule); }
+  .tl li { position: relative; padding: 0 0 20px 22px; }
+  .tl li::before { content: ""; position: absolute; left: -7px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+  .tl .yr { font-size: 13px; color: var(--warm); font-weight: 500; }
+  .tl .what { font-weight: 500; }
+  .tl .where { font-size: 14px; color: var(--ink-2); }
+
+  /* contact */
+  .contact { text-align: center; padding: 64px 0 72px; }
+  .contact p { max-width: 620px; margin: 10px auto 22px; color: var(--ink-2); }
+  .contact .links { justify-content: center; }
+  footer { text-align: center; font-size: 12.5px; color: var(--ink-3); padding: 0 0 36px; }
+
+  /* responsive */
+  @media (max-width: 900px) {
+    .tools, .pubs { grid-template-columns: repeat(2, 1fr); }
+    .bio-news { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; text-align: center; gap: 22px; padding-top: 40px; }
+    .photo { width: 160px; height: 160px; margin: 0 auto; }
+    .photo .mono { font-size: 46px; }
+    .hero .links { justify-content: center; }
+    h1 { font-size: 36px; }
+    .themes, .tools, .pubs, .cv { grid-template-columns: 1fr; }
+    .bio .lede { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Ammal Abbasi</a>
+    <ul>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#software">Software</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+
+  <header class="hero">
+    <div class="photo">
+      <!-- Drop a square photo at assets/photo.jpg and it replaces the monogram automatically. -->
+      <span class="mono">AA</span>
+      <img src="assets/photo.jpg" alt="Ammal Abbasi" onerror="this.remove()">
+    </div>
+    <div>
+      <p class="greeting">Hello, I'm</p>
+      <h1>Ammal Abbasi, PhD</h1>
+      <p class="title">Postdoctoral Scholar in computational cancer genomics<br>
+        <a href="https://www.alexandrovlab.com" target="_blank" rel="noopener">Alexandrov Lab</a> · UC San Diego</p>
+      <div class="links">
+        <a class="chip" href="mailto:amabbasi@ucsd.edu"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>Email</a>
+        <a class="chip" href="https://github.com/ammalabbasi" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>GitHub</a>
+        <a class="chip" href="https://orcid.org/0009-0007-2836-4657" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zM8.1 17.4H6.6V7.3h1.5v10.1zM7.3 6.4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm11 5.9c0 2.9-2 5.1-5.3 5.1H10V7.3h3c3.2 0 5.3 2.1 5.3 5zm-1.6 0c0-2-1.2-3.6-3.9-3.6h-1.3V16h1.3c2.7 0 3.9-1.7 3.9-3.7z"/></svg>ORCID</a>
+        <a class="chip" href="https://pubmed.ncbi.nlm.nih.gov/?term=Abbasi+A%5BAuthor%5D+AND+Alexandrov+LB%5BAuthor%5D&sort=date" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 3h11l5 5v13H4zM14 4v5h5"/></svg>PubMed</a>
+        <a class="chip" href="https://profiles.ucsd.edu/ammal.abbasi" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2 1 7l11 5 9-4.1V15h2V7zM5 13.2V17l7 3.5 7-3.5v-3.8l-7 3.2z"/></svg>UCSD Profile</a>
+        <!-- Add when ready:
+        <a class="chip" href="https://scholar.google.com/citations?user=XXXX">Google Scholar</a>
+        <a class="chip" href="https://www.linkedin.com/in/XXXX">LinkedIn</a>
+        <a class="chip" href="assets/Abbasi_CV.pdf">CV (PDF)</a>
+        -->
+      </div>
+    </div>
+  </header>
+
+  <div class="bio-news">
+    <div class="bio">
+      <p class="lede">I study how microbes and the environment write themselves into the human genome, and what those mutational footprints tell us about why colorectal cancer is rising in young adults.</p>
+      <p>I am a Postdoctoral Scholar in <a href="https://www.alexandrovlab.com" target="_blank" rel="noopener">Ludmil Alexandrov's lab</a> at UC San Diego. My work sits where mutational-signature analysis meets the cancer microbiome. In the international <b>Mutographs</b> colorectal cancer study, I led the microbiome analyses linking <i>pks</i><sup>+</sup> bacteria to the colibactin signature (SBS88). That signature is enriched in early-onset disease, but bacterial presence alone does not predict mutagenic activity. Host context and the timing of exposure matter.</p>
+      <p>I also build open tools. <b>HRProfiler</b> detects homologous recombination deficiency from whole-genome and whole-exome data. <b>pksProfiler</b> and a scalable Nextflow cancer-microbiome pipeline detect genotoxic bacteria in tumour and metagenome sequencing.</p>
+      <p>I earned my PhD in Bioinformatics &amp; Systems Biology at UC San Diego (2025) and a BA in Computer Science and Biology at <b>Mount Holyoke College</b> (2019). Before graduate school I worked at the Massachusetts General Hospital Cancer Center with Aaron Hata and Mike Lawrence, studying APOBEC mutagenesis in drug-tolerant lung cancer cells.</p>
+      <div class="tags">
+        <span class="tag">Mutational signatures</span><span class="tag">Cancer microbiome</span><span class="tag">Colibactin · SBS88</span>
+        <span class="tag">Early-onset CRC</span><span class="tag">HR deficiency</span><span class="tag">Nextflow</span><span class="tag">Machine learning</span>
+      </div>
+    </div>
+
+    <aside class="news" aria-label="News">
+      <h3>News</h3>
+      <ul>
+        <li><span class="date">09/2026</span><span><span class="pill">Commentary</span>With Ludmil Alexandrov in <i>Cancer Cell</i>: <a href="https://pubmed.ncbi.nlm.nih.gov/42612635/" target="_blank" rel="noopener">Biological aging and the hidden architecture of early-onset cancer risk</a>.</span></li>
+        <li><span class="date">2026</span><span><span class="pill">Paper</span>A previously missed mutational signature in colorectal cancer, identified and validated, now out in <a href="https://pubmed.ncbi.nlm.nih.gov/42716939/" target="_blank" rel="noopener"><i>Nature Communications</i></a>.</span></li>
+        <li><span class="date">2026</span><span><span class="pill">Paper</span>Genomic features of chemotherapy response in ovarian cancer in <a href="https://pubmed.ncbi.nlm.nih.gov/42737428/" target="_blank" rel="noopener"><i>IJMS</i></a>.</span></li>
+        <li><span class="date">07/2025</span><span><span class="pill">First author</span><a href="https://pubmed.ncbi.nlm.nih.gov/40327608/" target="_blank" rel="noopener">HRProfiler</a> published in <i>Cancer Research</i>.</span></li>
+        <li><span class="date">06/2025</span><span><span class="pill">Milestone</span>Completed my PhD in Bioinformatics &amp; Systems Biology and started as a postdoc in the Alexandrov Lab.</span></li>
+        <li><span class="date">04/2025</span><span><span class="pill">Paper</span>Geographic and age variation in colorectal cancer mutational processes, including colibactin in early-onset CRC, in <a href="https://pubmed.ncbi.nlm.nih.gov/40267983/" target="_blank" rel="noopener"><i>Nature</i></a>.</span></li>
+        <li><span class="date">04/2025</span><span><span class="pill">Paper</span>Tobacco-smoke mutagenesis in head and neck cancer in <a href="https://pubmed.ncbi.nlm.nih.gov/40164736/" target="_blank" rel="noopener"><i>Nature Genetics</i></a>.</span></li>
+        <li><span class="date">10/2024</span><span><span class="pill">Paper</span><a href="https://pubmed.ncbi.nlm.nih.gov/39083703/" target="_blank" rel="noopener">DeepHRD</a> predicts HRD and platinum response from H&amp;E slides, in the <i>Journal of Clinical Oncology</i>.</span></li>
+        <li><span class="date">2023</span><span><span class="pill">Paper</span>Two <i>Nature</i> papers: <a href="https://pubmed.ncbi.nlm.nih.gov/37046091/" target="_blank" rel="noopener">EBNA1 fragile-site breakage</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/37407818/" target="_blank" rel="noopener">therapy-induced APOBEC3A</a>.</span></li>
+        <li><span class="date">2022</span><span><span class="pill">Paper</span><a href="https://pubmed.ncbi.nlm.nih.gov/35705804/" target="_blank" rel="noopener">Signatures of copy number alterations</a> in <i>Nature</i>, plus a <i>Nature</i> News &amp; Views on topoisomerase signatures.</span></li>
+      </ul>
+    </aside>
+  </div>
+
+  <section id="research">
+    <div class="sec-head">
+      <h2>Research</h2>
+      <p class="sub">Four threads, one question: which processes damage our DNA, and how can we read them from a tumour?</p>
+    </div>
+    <div class="themes">
+      <article class="theme" style="--c: var(--warm)">
+        <div class="k">Microbes &amp; mutagenesis</div>
+        <h4>Colibactin, <i>pks</i><sup>+</sup> bacteria and early-onset colorectal cancer</h4>
+        <p>I led microbiome-integrated analyses across a large international colorectal cancer cohort to link microbial exposures to somatic mutational signatures. The colibactin signature SBS88 is enriched in early-onset disease. Bacterial presence alone does not predict mutagenic activity, which points to host state and the timing of exposure as the missing variables.</p>
+        <div class="rep">Díaz-Gay et al., <i>Nature</i> 2025 · Abbasi &amp; Alexandrov, <i>Cancer Cell</i> 2026</div>
+      </article>
+      <article class="theme" style="--c: var(--ct)">
+        <div class="k">Precision oncology</div>
+        <h4>Detecting homologous recombination deficiency</h4>
+        <p>HRProfiler is a machine-learning classifier that uses just six mutational features to detect HRD, a biomarker for PARP-inhibitor and platinum sensitivity. It works on whole-exome data, where other tools fail. With DeepHRD, the same biomarker is predicted directly from routine H&amp;E slides.</p>
+        <div class="rep">Abbasi et al., <i>Cancer Res</i> 2025 · Bergstrom et al., <i>J Clin Oncol</i> 2024</div>
+      </article>
+      <article class="theme" style="--c: var(--ca)">
+        <div class="k">Methods</div>
+        <h4>Scalable mutational-signature discovery</h4>
+        <p>I contribute to the SigProfiler suite of tools for de novo signature extraction and for exploring large mutational events across thousands of genomes. I have also written about what sequencing technologies can and cannot resolve.</p>
+        <div class="rep">Islam et al., <i>Cell Genomics</i> 2022 · Khandekar et al., <i>BMC Genomics</i> 2023 · Abbasi &amp; Alexandrov, <i>DNA Repair</i> 2021</div>
+      </article>
+      <article class="theme" style="--c: var(--tc)">
+        <div class="k">Cancer evolution</div>
+        <h4>Mutational processes that shape evolution and resistance</h4>
+        <p>Mutational processes are dynamic and clinically relevant, not static background. Examples include therapy-induced APOBEC3A in persistent lung cancer cells, viral EBNA1 breaking chromosomal fragile sites, copy-number signatures across human cancer and tobacco-driven mutagenesis.</p>
+        <div class="rep">Isozaki et al., <i>Nature</i> 2023 · Li et al., <i>Nature</i> 2023 · Steele et al., <i>Nature</i> 2022</div>
+      </article>
+    </div>
+  </section>
+
+  <section id="software">
+    <div class="sec-head">
+      <h2>Software</h2>
+      <p class="sub">Research that ships as tools other people can run.</p>
+    </div>
+    <div class="tools">
+      <article class="tool">
+        <div class="name">HRProfiler</div>
+        <div class="meta">Python · PyPI · first-author tool</div>
+        <p>Predicts homologous recombination deficiency from whole-genome or whole-exome somatic mutations using six interpretable features.</p>
+        <div class="acts"><a href="https://github.com/AlexandrovLab/HRProfiler" target="_blank" rel="noopener">GitHub →</a><a href="https://pypi.org/project/HRProfiler/" target="_blank" rel="noopener">PyPI →</a><a href="https://pubmed.ncbi.nlm.nih.gov/40327608/" target="_blank" rel="noopener">Paper →</a></div>
+      </article>
+      <article class="tool">
+        <div class="name">pksProfiler</div>
+        <div class="meta">Nextflow · conda</div>
+        <p>Detects and quantifies the colibactin-producing <i>pks</i> island in tumour genomes and metagenomes, and identifies which bacterium is carrying it.</p>
+        <div class="acts"><a href="https://github.com/AlexandrovLab/pksProfiler" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+      <article class="tool">
+        <div class="name">CMPipeline</div>
+        <div class="meta">Nextflow · HPC</div>
+        <p>Cancer-microbiome profiling of whole genomes. It removes host reads, then keeps only the taxa that both KrakenUniq/Bracken and MetaPhlAn 4 agree on. Optional steps confirm species by alignment and remove reagent contaminants.</p>
+        <div class="acts"><a href="https://github.com/ammalabbasi/CMPipeline" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+      <article class="tool">
+        <div class="name">SigProfiler suite</div>
+        <div class="meta">Contributor · Alexandrov Lab</div>
+        <p>Community-standard tools for building mutational matrices and extracting signatures. I contributed to SigProfilerExtractor and SigProfilerMatrixGenerator.</p>
+        <div class="acts"><a href="https://github.com/AlexandrovLab/SigProfilerExtractor" target="_blank" rel="noopener">Extractor →</a><a href="https://github.com/AlexandrovLab/SigProfilerMatrixGenerator" target="_blank" rel="noopener">MatrixGenerator →</a></div>
+      </article>
+      <article class="tool">
+        <div class="name">Cancer repeat profiling</div>
+        <div class="meta">Python · R · long-read</div>
+        <p>Maps the landscape of the EBV-like repeat at chromosome 11q23 across populations using long-read sequencing. This is the repeat EBNA1 breaks.</p>
+        <div class="acts"><a href="https://github.com/ammalabbasi/Cancer-Repeat-Sequence-Profiling" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+      <article class="tool">
+        <div class="name">claude-skills</div>
+        <div class="meta">Open source · AI tooling</div>
+        <p>Reusable skills for working with AI coding agents in research, including a house-style HTML report generator with pre-send checks.</p>
+        <div class="acts"><a href="https://github.com/ammalabbasi/claude-skills" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="sec-head">
+      <h2>Publications</h2>
+      <p class="sub">Selected work below. Each card shows a decorative 96-channel mutational spectrum, not real data.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter publications">
+      <button aria-pressed="true" data-f="all">All</button>
+      <button aria-pressed="false" data-f="first">First author</button>
+      <button aria-pressed="false" data-f="microbiome">Microbiome &amp; exposures</button>
+      <button aria-pressed="false" data-f="hrd">HRD</button>
+      <button aria-pressed="false" data-f="methods">Methods</button>
+    </div>
+    <div class="pubs" id="pubs"></div>
+
+    <details class="full">
+      <summary>Full publication list</summary>
+      <div id="fulllist"></div>
+    </details>
+  </section>
+
+  <section id="cv">
+    <div class="sec-head">
+      <h2>Education &amp; honors</h2>
+    </div>
+    <div class="cv">
+      <div>
+        <h3>Training</h3>
+        <ul class="tl">
+          <li><div class="yr">2025 – present</div><div class="what">Postdoctoral Scholar</div><div class="where">Alexandrov Lab, Cellular &amp; Molecular Medicine, UC San Diego. Computational cancer genomics &amp; microbiome research.</div></li>
+          <li><div class="yr">2019 – 2025</div><div class="what">PhD, Bioinformatics &amp; Systems Biology</div><div class="where">UC San Diego. Advisor: Ludmil B. Alexandrov.</div></li>
+          <li><div class="yr">Before 2019</div><div class="what">Research, MGH Cancer Center</div><div class="where">Massachusetts General Hospital / Harvard Medical School. With Aaron N. Hata and Michael S. Lawrence.</div></li>
+          <li><div class="yr">2015 – 2019</div><div class="what">BA, Computer Science &amp; Biology</div><div class="where">Mount Holyoke College, South Hadley, MA.</div></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Honors</h3>
+        <ul class="tl">
+          <li><div class="yr">2019 – 2020</div><div class="what">Powell Fellowship</div><div class="where">Bioengineering Department, UC San Diego.</div></li>
+          <li><div class="yr">2018</div><div class="what">Bernice MacLean Award for Excellence in Biological Sciences</div><div class="where">Mount Holyoke College.</div></li>
+          <li><div class="yr">2017</div><div class="what">Sarah Williston Scholar</div><div class="where">Mount Holyoke College.</div></li>
+        </ul>
+        <h3 style="margin-top:26px">Speaking</h3>
+        <p style="font-size:14.5px;color:var(--ink-2);margin:0">Presented work on microbial mutagenesis at AACR and at microbiology-focused meetings. I also mentor trainees in pipeline design and analysis strategy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Get in touch</h2>
+    <p>I'm always happy to talk about collaborations on mutational signatures, cancer microbiome methods or early-onset cancer. The best way to reach me is email: <b>amabbasi [at] ucsd [dot] edu</b>.</p>
+    <div class="links">
+      <a class="chip" href="mailto:amabbasi@ucsd.edu">Email</a>
+      <a class="chip" href="https://github.com/ammalabbasi" target="_blank" rel="noopener">GitHub</a>
+      <a class="chip" href="https://orcid.org/0009-0007-2836-4657" target="_blank" rel="noopener">ORCID</a>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="yr"></span> Ammal Abbasi · Built by hand, hosted on GitHub Pages</footer>
+
+<script>
+// ---- publication data (edit here) -------------------------------------------------
+// role: "first" | "co-first" | "second" | "co"; tags drive the filter buttons.
+const PUBS = [
+  { y: 2026, t: "Biological aging and the hidden architecture of early-onset cancer risk", a: "<b>Abbasi A</b>, Alexandrov LB", v: "Cancer Cell", ref: "44(9):1743–1745", pmid: "42612635", role: "first", tags: ["microbiome","first"], sel: true, kind: "Commentary" },
+  { y: 2026, t: "Identification and validation of a previously missed mutational signature in colorectal cancer", a: "Kazachkova M, Otlu B, Díaz-Gay M, <b>Abbasi A</b>, Moody S, … Stratton MR, Alexandrov LB", v: "Nature Communications", ref: "17(1)", pmid: "42716939", role: "co", tags: ["methods"], sel: true },
+  { y: 2026, t: "Whole-exome sequencing identifies candidate genomic features associated with response to platinum-based chemotherapy and ixabepilone-based treatment in ovarian cancer", a: "Hartwich TMP, Bellone S, … <b>Abbasi A</b>, Alexandrov LB, Santin AD", v: "Int J Mol Sci", ref: "27(17)", pmid: "42737428", role: "co", tags: ["hrd"] },
+  { y: 2025, t: "HRProfiler detects homologous recombination deficiency in breast and ovarian cancers using whole-genome and whole-exome sequencing data", a: "<b>Abbasi A</b>, Steele CD, Bergstrom EN, Khandekar A, Farswan A, McKay RR, Pillay N, Alexandrov LB", v: "Cancer Research", ref: "85(13):2504–2513", pmid: "40327608", role: "first", tags: ["hrd","first","methods"], sel: true, code: "https://github.com/AlexandrovLab/HRProfiler" },
+  { y: 2025, t: "Geographic and age variations in mutational processes in colorectal cancer", a: "Díaz-Gay M, Dos Santos W, Moody S, Kazachkova M, <b>Abbasi A</b>, Steele CD, … Alexandrov LB", v: "Nature", ref: "643(8070):230–240", pmid: "40267983", role: "co", tags: ["microbiome"], sel: true },
+  { y: 2025, t: "The complexity of tobacco smoke-induced mutagenesis in head and neck cancer", a: "Torrens L, Moody S, … <b>Abbasi A</b>, … Stratton MR, Perdomo S", v: "Nature Genetics", ref: "57(4):884–896", pmid: "40164736", role: "co", tags: ["microbiome"] },
+  { y: 2024, t: "Deep learning artificial intelligence predicts homologous recombination deficiency and platinum response from histologic slides", a: "Bergstrom EN, <b>Abbasi A</b>, Díaz-Gay M, Galland L, Ladoire S, Lippman SM, Alexandrov LB", v: "J Clin Oncol", ref: "42(30):3550–3560", pmid: "39083703", role: "second", tags: ["hrd","methods"], sel: true },
+  { y: 2023, t: "Therapy-induced APOBEC3A drives evolution of persistent cancer cells", a: "Isozaki H, Sakhtemani R, <b>Abbasi A</b>, … Lawrence MS, Hata AN", v: "Nature", ref: "620(7973):393–401", pmid: "37407818", role: "co", tags: [] },
+  { y: 2023, t: "Chromosomal fragile site breakage by EBV-encoded EBNA1 at clustered repeats", a: "Li JSZ, <b>Abbasi A</b>, Kim DH, Lippman SM, Alexandrov LB, Cleveland DW", v: "Nature", ref: "616(7957):504–509", pmid: "37046091", role: "second", tags: ["microbiome"], sel: true, code: "https://github.com/ammalabbasi/Cancer-Repeat-Sequence-Profiling" },
+  { y: 2023, t: "Visualizing and exploring patterns of large mutational events with SigProfilerMatrixGenerator", a: "Khandekar A, Vangara R, Barnes M, Díaz-Gay M, <b>Abbasi A</b>, Bergstrom EN, Steele CD, Pillay N, Alexandrov LB", v: "BMC Genomics", ref: "24(1):469", pmid: "37605126", role: "co", tags: ["methods"] },
+  { y: 2022, t: "Signatures of copy number alterations in human cancer", a: "Steele CD, <b>Abbasi A</b>, Islam SMA, … Alexandrov LB, Pillay N", v: "Nature", ref: "606(7916):984–991", pmid: "35705804", role: "second", tags: ["methods"], sel: true },
+  { y: 2022, t: "Uncovering novel mutational signatures by de novo extraction with SigProfilerExtractor", a: "Islam SMA, Díaz-Gay M, Wu Y, … <b>Abbasi A</b>, … Rozen SG, Alexandrov LB", v: "Cell Genomics", ref: "2(11)", pmc: "PMC9646490", role: "co", tags: ["methods"] },
+  { y: 2022, t: "Unwinding the mutational signatures of a DNA topoisomerase enzyme", a: "<b>Abbasi A</b>, Alexandrov LB", v: "Nature", ref: "602(7898):580–581", pmid: "35140368", role: "first", tags: ["first"], sel: true, kind: "News & Views" },
+  { y: 2021, t: "Significance and limitations of the use of next-generation sequencing technologies for detecting mutational signatures", a: "<b>Abbasi A</b>, Alexandrov LB", v: "DNA Repair", ref: "107:103200", pmid: "34411908", role: "first", tags: ["first","methods"], sel: true, kind: "Review" },
+];
+const PREPRINTS = [
+  { y: 2025, t: "Identification and validation of a previously missed mutational signature in colorectal cancer", a: "Kazachkova M, … <b>Abbasi A</b>, … Alexandrov LB", v: "bioRxiv", pmid: "40661437" },
+  { y: 2025, t: "Geographic and age-related variations in mutational processes in colorectal cancer", a: "Díaz-Gay M, … <b>Abbasi A</b>, … Alexandrov LB", v: "medRxiv", pmid: "40034755" },
+  { y: 2024, t: "Detecting HRD in whole-genome and whole-exome sequenced breast and ovarian cancers", a: "<b>Abbasi A</b>, Steele CD, … Alexandrov LB", v: "medRxiv", pmid: "39040162" },
+  { y: 2024, t: "The complexity of tobacco smoke-induced mutagenesis in head and neck cancer", a: "Torrens L, … <b>Abbasi A</b>, … Perdomo S", v: "medRxiv", pmid: "38699364" },
+  { y: 2023, t: "Visualizing and exploring patterns of large mutational events with SigProfilerMatrixGenerator", a: "Khandekar A, … <b>Abbasi A</b>, … Alexandrov LB", v: "bioRxiv", pmid: "36778452" },
+];
+
+// ---- decorative SBS-96 spectrum, seeded by title -------------------------------------
+const SBS = ["--ca","--cg","--ct","--ta","--tc","--tg"].map(v => getComputedStyle(document.documentElement).getPropertyValue(v).trim());
+function rng(seed){ let h = 2166136261; for (const c of seed) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return () => ((h = Math.imul(h ^ (h >>> 15), 2246822507) ^ Math.imul(h ^ (h >>> 13), 3266489909)) >>> 0) / 4294967296; }
+function spectrum(seed){
+  const r = rng(seed), W = 300, H = 72, bw = W / 96;
+  const peak = Math.floor(r() * 6);            // one dominant class per paper
+  let bars = "", hs = [];
+  for (let i = 0; i < 96; i++) {
+    const cls = Math.floor(i / 16);
+    let h = Math.pow(r(), 2.2) * (cls === peak ? 1 : .38);
+    if (r() < .04) h = Math.min(1, h + .6);
+    hs.push(h);
+  }
+  const m = Math.max(...hs);
+  hs.forEach((h, i) => {
+    const hh = Math.max(1.5, (h / m) * (H - 8));
+    bars += `<rect x="${(i * bw + .4).toFixed(2)}" y="${(H - 6 - hh).toFixed(2)}" width="${(bw - .8).toFixed(2)}" height="${hh.toFixed(2)}" fill="${SBS[Math.floor(i / 16)]}" rx=".6"/>`;
+  });
+  for (let k = 0; k < 6; k++) bars += `<rect x="${k * 50 + .5}" y="${H - 3}" width="49" height="3" fill="${SBS[k]}"/>`;
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true">${bars}</svg>`;
+}
+
+const link = p => p.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${p.pmid}/` : `https://www.ncbi.nlm.nih.gov/pmc/articles/${p.pmc}/`;
+const ROLE = { first: "First author", second: "Second author" };
+
+function renderCards(filter){
+  const list = PUBS.filter(p => filter === "all" ? p.sel : p.tags.includes(filter));
+  document.getElementById("pubs").innerHTML = list.map(p => `
+    <article class="pub">
+      <div class="spec">${spectrum(p.t)}</div>
+      <div class="body">
+        <div class="venue">${p.v} · ${p.y}${ROLE[p.role] ? `<span class="role">${ROLE[p.role]}</span>` : ""}</div>
+        <h4><a href="${link(p)}" target="_blank" rel="noopener">${p.t}</a></h4>
+        <p class="auth">${p.a}${p.kind ? ` · <i>${p.kind}</i>` : ""}</p>
+        <div class="plinks"><a href="${link(p)}" target="_blank" rel="noopener">${p.pmid ? "PubMed" : "PMC"} →</a>${p.code ? `<a href="${p.code}" target="_blank" rel="noopener">Code →</a>` : ""}</div>
+      </div>
+    </article>`).join("");
+}
+function renderFull(){
+  const item = p => `<li>${p.a}. <b>${p.t}.</b> <i>${p.v}</i> ${p.y}${p.ref ? `; ${p.ref}` : ""}. <a href="${link(p)}" target="_blank" rel="noopener">${p.pmid ? "PMID " + p.pmid : p.pmc}</a></li>`;
+  document.getElementById("fulllist").innerHTML =
+    `<h5>Peer-reviewed (${PUBS.length})</h5><ol>${PUBS.map(item).join("")}</ol>` +
+    `<h5>Preprints</h5><ol>${PREPRINTS.map(item).join("")}</ol>`;
+}
+document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll(".filters button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  renderCards(b.dataset.f);
+}));
+renderCards("all"); renderFull();
+document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
