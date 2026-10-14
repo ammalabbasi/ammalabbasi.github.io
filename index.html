@@ -219,6 +219,32 @@
   .article .headline { font-size: 14px; line-height: 1.45; color: #333; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
   @media (max-width: 820px) { .story { grid-template-columns: 1fr; } .story-paper { flex-direction: row; align-items: center; } .story-paper img { width: 120px; height: 84px; } .featured-in { flex-direction: column; align-items: flex-start; } }
 /*/MEDIA-CSS*/
+  .lead-q { font-size: 22px; font-weight: 700; color: var(--teal); margin: 0 0 10px !important; letter-spacing: -.01em; }
+  .pillars { list-style: none; margin: 4px 0 18px; padding: 0; display: grid; gap: 10px; }
+  .pillars li { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: start; padding: 10px 14px; border: 1px solid var(--line); border-left: 3px solid var(--teal); border-radius: 10px; background: #fcfffe; font-size: 14.5px; line-height: 1.55; }
+  .pillar-n { font-size: 13px; font-weight: 800; color: var(--teal); padding-top: 1px; }
+  .pillars b { color: var(--ink); }
+  .bio .aim { padding: 10px 14px; background: #f0fdfa; border-radius: 10px; }
+/*SLIDES-CSS*/
+  .highlights { margin-top: 4px; }
+  .carousel { position: relative; }
+  .track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; border-radius: 14px; scrollbar-width: none; outline: none; }
+  .track::-webkit-scrollbar { display: none; }
+  .slide { flex: 0 0 100%; margin: 0; scroll-snap-align: start; }
+  .slide-media { position: relative; height: 430px; overflow: hidden; border-radius: 14px; background: #111; }
+  .slide-media::before { content: ""; position: absolute; inset: -30px; background: var(--bg) center / cover no-repeat; filter: blur(22px) brightness(.85); }
+  .slide-media img { position: relative; display: block; width: 100%; height: 100%; object-fit: contain; }
+  .slide figcaption { padding: 12px 4px 0; font-size: 15px; line-height: 1.5; color: #333; }
+  .slide-date { display: inline-block; margin-right: 10px; font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--teal); }
+  .nav { position: absolute; top: 215px; transform: translateY(-50%); z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 0; cursor: pointer;
+         background: rgba(255,255,255,.9); color: #222; font-size: 26px; line-height: 38px; box-shadow: 0 2px 10px rgba(0,0,0,.18); transition: background .15s; }
+  .nav:hover { background: #fff; }
+  .nav.prev { left: 12px; } .nav.next { right: 12px; }
+  .dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+  .dot { width: 8px; height: 8px; padding: 0; border-radius: 999px; border: 0; background: #d1d5db; cursor: pointer; transition: width .2s, background .2s; }
+  .dot[aria-current="true"] { width: 22px; background: var(--teal); }
+  @media (max-width: 720px) { .slide-media { height: 260px; } .nav { top: 130px; width: 34px; height: 34px; font-size: 22px; line-height: 32px; } }
+/*/SLIDES-CSS*/
 </style>
 </head>
 <body>
@@ -310,7 +336,7 @@
 
   <header class="header">
     <a class="logo" href="#">Ammal Abbasi</a>
-    <nav class="menu"><a href="#about">About</a><a href="#publications">Publications</a><a href="#media">News</a><a href="#software">Software</a><a href="#outreach">Mentoring</a><a href="#cv">CV</a><a href="running.html">Running</a></nav>
+    <nav class="menu"><a href="#about">About</a><a href="#publications">Publications</a><a href="#media">News</a><a href="#software">Software</a><a href="#outreach">Mentoring</a><a href="#cv">CV</a></nav>
   </header>
 
   <main class="body">
@@ -335,9 +361,16 @@
 
       <div class="bio-news">
         <div class="bio">
-          <p>I work at the intersection of <strong class="teal">Cancer Genomics, Mutational Signatures and the Microbiome</strong>. I study how microbial and environmental exposures leave mutational footprints in human cancer genomes. My main focus is the colibactin signature (SBS88), produced by <i>pks</i>+ bacteria, and its role in the rise of early-onset colorectal cancer. In the international Mutographs colorectal cancer study, I led the microbiome analyses linking <i>pks</i>+ bacteria to SBS88. Bacterial presence alone does not predict mutagenic activity, so host context and the timing of exposure matter.</p>
-          <p>I also build open-source tools that other researchers run: <a href="https://github.com/AlexandrovLab/HRProfiler" target="_blank" rel="noopener">HRProfiler</a> detects homologous recombination deficiency from whole-genome and whole-exome data, and <a href="https://github.com/AlexandrovLab/pksProfiler" target="_blank" rel="noopener">pksProfiler</a> and <a href="https://github.com/ammalabbasi/CMPipeline" target="_blank" rel="noopener">CMPipeline</a> are Nextflow pipelines for finding genotoxic bacteria in tumour and metagenome sequencing.</p>
-          <p>I received my PhD in Bioinformatics and Systems Biology from the <a href="https://ucsd.edu" target="_blank" rel="noopener">University of California, San Diego</a>, advised by <a href="https://alexandrov.cloud.ucsd.edu" target="_blank" rel="noopener">Ludmil Alexandrov</a>, and my Bachelor's <i>magna cum laude</i> in Computer Science and Biology from <a href="https://www.mtholyoke.edu" target="_blank" rel="noopener">Mount Holyoke College, MA</a>. Before graduate school I was a computational biologist at the Massachusetts General Hospital Cancer Center with Michael Lawrence and Aaron Hata. My work has appeared in <i>Nature</i>, <i>Nature Genetics</i>, <i>Cancer Cell</i>, <i>Cancer Research</i> and the <i>Journal of Clinical Oncology</i>. See the full list of <a href="https://scholar.google.com/citations?user=-RKn5p8AAAAJ" target="_blank" rel="noopener">publications here</a>.</p>
+          <p class="lead-q">When do microbes damage our DNA, and when do they help damaged cells grow?</p>
+          <p>Colorectal cancer is rising fastest in younger generations, a shift that points to exposures encountered from early life onward. Some gut bacteria produce genotoxins that damage host DNA. Colibactin, made by bacteria carrying the <i>pks</i> island, leaves a recognisable mutational signature that is enriched in early-onset colorectal cancer and can be acquired in the first decade of life. Yet <i>pks</i>+ bacteria are also common in people who never develop cancer, and at diagnosis the bacteria and the mutations often do not coincide. Other microbes, such as <i>Fusobacterium nucleatum</i>, may instead help cells that already carry mutations to expand.</p>
+          <p class="aim">My research asks <strong class="teal">when, and under which host and microbial conditions, microbial exposures cause lasting mutations or promote the progression of initiated cells</strong>, and whether those conditions can be changed to prevent colorectal cancer.</p>
+          <ul class="pillars">
+            <li><span class="pillar-n">01</span><div><b>Mapping microbial exposure across the life course.</b> Benchmarked tools that detect <i>pks</i>+ bacteria in metagenomes and cancer genomes, applied from infancy through adulthood to cancer, to learn when carriage begins, how long it lasts, and which microbial communities come first.</div></li>
+            <li><span class="pillar-n">02</span><div><b>AI-augmented knowledge graphs.</b> Combining patient-level microbial and host data with published biology, with help from large language models, to find the host–microbe interactions behind mutagenesis and the selection of mutant cells, then testing them with experimental collaborators.</div></li>
+            <li><span class="pillar-n">03</span><div><b>Microbiome-informed prevention.</b> Testing whether changing microbial communities can reduce genotoxic exposure early in life, or limit the expansion of cells that already carry mutations.</div></li>
+          </ul>
+          <p>This program builds on my work in mutational signatures and microbial profiling. Through the Cancer Grand Challenges team Mutographs, working with the International Agency for Research on Cancer and the Wellcome Sanger Institute, I led the microbiome analyses of 981 colorectal cancer genomes from 11 countries. They revealed colibactin-associated mutations enriched in younger patients, and showed that detecting <i>pks</i> bacteria at diagnosis does not reliably match those mutations. I build the tools to ask these questions: <a href="https://github.com/AlexandrovLab/pksProfiler" target="_blank" rel="noopener">pksProfiler</a> and <a href="https://github.com/ammalabbasi/CMPipeline" target="_blank" rel="noopener">CMPipeline</a> for microbial profiling, and <a href="https://github.com/AlexandrovLab/HRProfiler" target="_blank" rel="noopener">HRProfiler</a>, a patented machine-learning tool that detects homologous recombination deficiency, a marker of response to platinum and PARP-inhibitor therapy.</p>
+          <p>I am a Postdoctoral Scholar in <a href="https://alexandrov.cloud.ucsd.edu" target="_blank" rel="noopener">Ludmil Alexandrov's lab</a> at UC San Diego, where I received my PhD in Bioinformatics and Systems Biology. I earned my BA <i>magna cum laude</i> in Computer Science and Biology from <a href="https://www.mtholyoke.edu" target="_blank" rel="noopener">Mount Holyoke College</a>, and trained at the Massachusetts General Hospital Cancer Center and Novartis. My work has appeared in <i>Nature</i>, <i>Nature Genetics</i>, <i>Cancer Cell</i>, <i>Cancer Research</i> and the <i>Journal of Clinical Oncology</i>.</p>
           <p>I'm always interested in discussing research collaborations. The best way to reach me is by emailing amabbasi [at] ucsd [dot] edu.</p>
         </div>
 
@@ -346,14 +379,15 @@
             <h2 class="news-title">News</h2>
             <ul class="news-list">
               <li class="news-item"><span class="news-date">09/2026</span>Spotlight with Ludmil Alexandrov in <i>Cancer Cell</i>: <a href="https://doi.org/10.1016/j.ccell.2026.07.018" target="_blank" rel="noopener"><i>Biological aging and the hidden architecture of early-onset cancer risk</i></a>.</li>
-              <li class="news-item"><span class="news-date">06/2026</span>Celebrated at the UC San Diego doctoral commencement.<img class="news-photo" src="assets/news/commencement2026.jpg" alt="Ammal in doctoral regalia at UC San Diego commencement" loading="lazy"></li>
-              <li class="news-item"><span class="news-date">06/2026</span>At the <a href="https://www.cancer.org" target="_blank" rel="noopener">American Cancer Society</a> Cancer Prevention Research Conference in Atlanta, talking about microbes and early-onset colorectal cancer.<img class="news-photo" src="assets/news/acs_atlanta2026.jpg" alt="Ammal with colleagues at the American Cancer Society Cancer Prevention Research Conference" loading="lazy"></li>
-              <li class="news-item"><span class="news-date">04/2026</span>Presented a late-breaking abstract at the <a href="https://doi.org/10.1158/1538-7445.AM2026-LB208" target="_blank" rel="noopener">AACR Annual Meeting 2026</a> on the role of <i>pks</i>-positive bacteria in colorectal cancer. My mentees also presented their softHRD poster.<span class="news-photos"><img class="news-photo" src="assets/news/aacr2026_poster.jpg" alt="Ammal at her AACR 2026 poster" loading="lazy"><img class="news-photo" src="assets/news/aacr2026_hall.jpg" alt="AACR 2026 poster hall" loading="lazy"></span></li>
+              <li class="news-item"><span class="news-date">06/2026</span>Celebrated at the UC San Diego doctoral commencement.</li>
+              <li class="news-item"><span class="news-date">06/2026</span>At the <a href="https://www.cancer.org" target="_blank" rel="noopener">American Cancer Society</a> Cancer Prevention Research Conference in Atlanta, talking about microbes and early-onset colorectal cancer.</li>
+              <li class="news-item"><span class="news-date">04/2026</span>Presented a late-breaking abstract at the <a href="https://doi.org/10.1158/1538-7445.AM2026-LB208" target="_blank" rel="noopener">AACR Annual Meeting 2026</a> on the role of <i>pks</i>-positive bacteria in colorectal cancer. My mentees also presented their softHRD poster.</li>
               <li class="news-item"><span class="news-date">2026</span>Kazachkova et al., with the Mutographs team, published in <i>Nature Communications</i>: <a href="https://doi.org/10.1038/s41467-026-76472-w" target="_blank" rel="noopener"><i>Identification and validation of a previously missed mutational signature in colorectal cancer</i></a>.</li>
-              <li class="news-item"><span class="news-date">12/2025</span>Invited talk on HRProfiler at the SoCal Genome Stability Symposium, City of Hope.<img class="news-photo" src="assets/news/cityofhope2025_room.jpg" alt="Ammal presenting at the SoCal Genome Stability Symposium" loading="lazy"></li>
+              <li class="news-item"><span class="news-date">12/2025</span>Invited talk on HRProfiler at the SoCal Genome Stability Symposium, City of Hope.</li>
+              <li class="news-item"><span class="news-date">11/2025</span>Outside the lab: marathon weekend, bib in hand.</li>
               <li class="news-item"><span class="news-date">07/2025</span>My first-author paper <a href="https://doi.org/10.1158/0008-5472.CAN-24-2639" target="_blank" rel="noopener"><i>HRProfiler</i></a> published in <i>Cancer Research</i>.</li>
-              <li class="news-item"><span class="news-date">06/2025</span>Completed my PhD at UC San Diego and started as a postdoctoral scholar in the Alexandrov Lab.<img class="news-photo" src="assets/news/commencement2025.jpg" alt="Ammal in doctoral regalia at UC San Diego, June 2025" loading="lazy"></li>
-              <li class="news-item"><span class="news-date">05/2025</span>Defended my PhD thesis, <i>Unraveling Mutational and Microbial Patterns in Cancer Genomes</i>, advised by Ludmil Alexandrov and Rob Knight.<span class="news-photos"><img class="news-photo" src="assets/news/defense2025_talk.jpg" style="object-position: 88% 60%" alt="Ammal presenting her PhD thesis defense" loading="lazy"><img class="news-photo" src="assets/news/defense2025.jpg" alt="Ammal with friends and colleagues after her PhD defense" loading="lazy"></span></li>
+              <li class="news-item"><span class="news-date">06/2025</span>Completed my PhD at UC San Diego and started as a postdoctoral scholar in the Alexandrov Lab.</li>
+              <li class="news-item"><span class="news-date">05/2025</span>Defended my PhD thesis, <i>Unraveling Mutational and Microbial Patterns in Cancer Genomes</i>, advised by Ludmil Alexandrov.</li>
               <li class="news-item"><span class="news-date">04/2025</span>Mutographs colorectal cancer study published in <i>Nature</i>: <a href="https://doi.org/10.1038/s41586-025-09025-8" target="_blank" rel="noopener"><i>Geographic and age variations in mutational processes in colorectal cancer</i></a>.</li>
               <li class="news-item"><span class="news-date">04/2025</span>Tobacco-smoke mutagenesis in head and neck cancer published in <a href="https://doi.org/10.1038/s41588-025-02134-0" target="_blank" rel="noopener"><i>Nature Genetics</i></a>.</li>
               <li class="news-item"><span class="news-date">10/2024</span><a href="https://doi.org/10.1200/JCO.23.02641" target="_blank" rel="noopener"><i>DeepHRD</i></a>, which predicts HRD and platinum response from histology slides, published in the <i>Journal of Clinical Oncology</i>.</li>
@@ -363,6 +397,55 @@
           </div>
         </aside>
       </div>
+<!--SLIDES-->
+      <hr class="divider">
+      <section class="highlights" aria-roledescription="carousel" aria-label="Highlights">
+        <h2 class="sec-heading">Recent <span class="teal">Highlights</span></h2>
+        <div class="carousel">
+          <button type="button" class="nav prev" aria-label="Previous slide">&#8249;</button>
+          <div class="track" tabindex="0">
+          <figure class="slide" role="group" aria-roledescription="slide" aria-label="1 of 9">
+            <div class="slide-media" style="--bg:url('assets/news/commencement2026.jpg')"><img src="assets/news/commencement2026.jpg" alt="UC San Diego doctoral commencement." loading="eager"></div>
+            <figcaption><span class="slide-date">Jun 2026</span>UC San Diego doctoral commencement.</figcaption>
+          </figure>
+          <figure class="slide" role="group" aria-roledescription="slide" aria-label="2 of 9">
+            <div class="slide-media" style="--bg:url('assets/news/acs_atlanta2026.jpg')"><img src="assets/news/acs_atlanta2026.jpg" alt="American Cancer Society Cancer Prevention Research Conference, Atlanta." loading="lazy"></div>
+            <figcaption><span class="slide-date">Jun 2026</span>American Cancer Society Cancer Prevention Research Conference, Atlanta.</figcaption>
+          </figure>
+          <figure class="slide" role="group" aria-roledescription="slide" aria-label="3 of 9">
+            <div class="slide-media" style="--bg:url('assets/news/aacr2026_poster.jpg')"><img src="assets/news/aacr2026_poster.jpg" alt="Presenting my late-breaking poster on pks+ bacteria at the AACR Annual Meeting." loading="lazy"></div>
+            <figcaption><span class="slide-date">Apr 2026</span>Presenting my late-breaking poster on <i>pks</i>+ bacteria at the AACR Annual Meeting.</figcaption>
+          </figure>
+          <figure class="slide" role="group" aria-roledescription="slide" aria-label="4 of 9">
+            <div class="slide-media" style="--bg:url('assets/news/aacr2026_hall.jpg')"><img src="assets/news/aacr2026_hall.jpg" alt="The AACR 2026 poster hall in San Diego." loading="lazy"></div>
+            <figcaption><span class="slide-date">Apr 2026</span>The AACR 2026 poster hall in San Diego.</figcaption>
+          </figure>
+          <figure class="slide" role="group" aria-roledescription="slide" aria-label="5 of 9">
+            <div class="slide-media" style="--bg:url('assets/news/cityofhope2025_room.jpg')"><img src="assets/news/cityofhope2025_room.jpg" alt="Invited talk on HRProfiler at the SoCal Genome Stability Symposium, City of Hope." loading="lazy"></div>
+            <figcaption><span class="slide-date">Dec 2025</span>Invited talk on HRProfiler at the SoCal Genome Stability Symposium, City of Hope.</figcaption>
+          </figure>
+          <figure class="slide" role="group" aria-roledescription="slide" aria-label="6 of 9">
+            <div class="slide-media" style="--bg:url('assets/life/marathon2025_bib.jpg')"><img src="assets/life/marathon2025_bib.jpg" alt="Outside the lab: marathon weekend, bib in hand." loading="lazy"></div>
+            <figcaption><span class="slide-date">Nov 2025</span>Outside the lab: marathon weekend, bib in hand.</figcaption>
+          </figure>
+          <figure class="slide" role="group" aria-roledescription="slide" aria-label="7 of 9">
+            <div class="slide-media" style="--bg:url('assets/news/commencement2025.jpg')"><img src="assets/news/commencement2025.jpg" alt="My PhD commencement at UC San Diego." loading="lazy"></div>
+            <figcaption><span class="slide-date">Jun 2025</span>My PhD commencement at UC San Diego.</figcaption>
+          </figure>
+          <figure class="slide" role="group" aria-roledescription="slide" aria-label="8 of 9">
+            <div class="slide-media" style="--bg:url('assets/news/defense2025_talk.jpg')"><img src="assets/news/defense2025_talk.jpg" alt="Defending my thesis, Unraveling Mutational and Microbial Patterns in Cancer Genomes." loading="lazy"></div>
+            <figcaption><span class="slide-date">May 2025</span>Defending my thesis, <i>Unraveling Mutational and Microbial Patterns in Cancer Genomes</i>.</figcaption>
+          </figure>
+          <figure class="slide" role="group" aria-roledescription="slide" aria-label="9 of 9">
+            <div class="slide-media" style="--bg:url('assets/news/defense2025.jpg')"><img src="assets/news/defense2025.jpg" alt="With friends, family and colleagues after my defense." loading="lazy"></div>
+            <figcaption><span class="slide-date">May 2025</span>With friends, family and colleagues after my defense.</figcaption>
+          </figure>
+          </div>
+          <button type="button" class="nav next" aria-label="Next slide">&#8250;</button>
+        </div>
+        <div class="dots"><button type="button" class="dot" aria-label="Go to slide 1"></button><button type="button" class="dot" aria-label="Go to slide 2"></button><button type="button" class="dot" aria-label="Go to slide 3"></button><button type="button" class="dot" aria-label="Go to slide 4"></button><button type="button" class="dot" aria-label="Go to slide 5"></button><button type="button" class="dot" aria-label="Go to slide 6"></button><button type="button" class="dot" aria-label="Go to slide 7"></button><button type="button" class="dot" aria-label="Go to slide 8"></button><button type="button" class="dot" aria-label="Go to slide 9"></button></div>
+      </section>
+<!--/SLIDES-->
     </section>
 
     <hr class="divider">
@@ -665,7 +748,7 @@
           </ul>
           <h3 style="margin-top:22px">Education</h3>
           <ul>
-            <li><span class="yr">2019 – 2025</span>PhD, Bioinformatics and Systems Biology, UC San Diego<br><span class="v" style="color:var(--muted);font-size:14px">Thesis chair Ludmil Alexandrov · co-chair Rob Knight</span></li>
+            <li><span class="yr">2019 – 2025</span>PhD, Bioinformatics and Systems Biology, UC San Diego<br><span class="v" style="color:var(--muted);font-size:14px">Advisor: Ludmil Alexandrov</span></li>
             <li><span class="yr">2015 – 2019</span>BA <i>magna cum laude</i>, Computer Science and Biology, Mount Holyoke College</li>
           </ul>
           <h3 style="margin-top:22px">Teaching</h3>
@@ -721,5 +804,28 @@
 })();
 </script>
 <!--/PUBTABS-JS-->
+<!--SLIDES-JS-->
+<script>
+(() => {
+  const root = document.querySelector(".highlights"); if (!root) return;
+  const track = root.querySelector(".track"), slides = [...track.children], dots = [...root.querySelectorAll(".dot")];
+  const go = i => track.scrollTo({ left: ((i + slides.length) % slides.length) * track.clientWidth, behavior: "smooth" });
+  const cur = () => Math.round(track.scrollLeft / track.clientWidth);
+  const mark = () => dots.forEach((d, i) => d.setAttribute("aria-current", i === cur()));
+  root.querySelector(".prev").addEventListener("click", () => go(cur() - 1));
+  root.querySelector(".next").addEventListener("click", () => go(cur() + 1));
+  dots.forEach((d, i) => d.addEventListener("click", () => go(i)));
+  track.addEventListener("scroll", () => requestAnimationFrame(mark), { passive: true });
+  track.addEventListener("keydown", e => { if (e.key === "ArrowRight") go(cur() + 1); if (e.key === "ArrowLeft") go(cur() - 1); });
+  // gentle autoplay: pauses on hover, focus or touch, and never runs for reduced-motion users
+  let timer = null, paused = false;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const start = () => { if (!reduce && !timer) timer = setInterval(() => { if (!paused && !document.hidden) go(cur() + 1); }, 6000); };
+  ["mouseenter", "focusin", "touchstart"].forEach(ev => root.addEventListener(ev, () => paused = true, { passive: true }));
+  ["mouseleave", "focusout"].forEach(ev => root.addEventListener(ev, () => paused = false));
+  mark(); start();
+})();
+</script>
+<!--/SLIDES-JS-->
 </body>
 </html>
