@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Running · Ammal Abbasi</title>
+<meta name="description" content="Ammal Abbasi, PhD. Postdoctoral Scholar in the Alexandrov Lab at UC San Diego, working on cancer genomics, mutational signatures and the cancer microbiome.">
+<meta property="og:title" content="Ammal Abbasi, PhD">
+<meta property="og:description" content="Cancer genomics, mutational signatures and the cancer microbiome. Alexandrov Lab, UC San Diego.">
+<meta property="og:image" content="https://ammalabbasi.github.io/assets/photo.jpg">
+<link rel="icon" href="assets/photo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --teal: #0d9488;
+    --blue: #1890ff;
+    --ink: #1a1a1a;
+    --muted: #555;
+    --line: #e8e8e8;
+    --soft: #fafafa;
+  }
+  html { scroll-behavior: smooth; background: #fff; }
+  body { margin: 0; background: #fff; color: var(--ink); font-family: "Open Sans", "Helvetica Neue", sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { color: var(--blue); text-decoration: underline; }
+  .teal { color: var(--teal); }
+  .home { width: 70%; margin: 0 auto; }
+
+  /* header */
+  .header { display: flex; justify-content: space-between; align-items: center; padding: 12px; }
+  .logo { font-size: 25px; font-weight: 800; color: var(--teal); }
+  .logo:hover { color: var(--teal); text-decoration: none; }
+  .menu { display: flex; gap: 18px; }
+  .menu a { font-size: 16px; font-weight: 700; color: var(--teal); }
+  .menu a:hover { color: var(--blue); text-decoration: none; }
+
+  .body { padding: 12px 12px 36px; }
+  hr.divider { border: 0; border-top: 1px solid #f0f0f0; margin: 24px 0; }
+
+  /* about */
+  .about-top { display: grid; grid-template-columns: minmax(180px, 280px) 1fr; gap: 40px; align-items: center; }
+  .picture { width: 100%; max-width: 280px; aspect-ratio: 1; object-fit: cover; border-radius: 50%; display: block; }
+  .about-info { font-size: 20px; line-height: 1.5; }
+  .about-greeting { margin: 0 0 10px; font-size: 20px; }
+  .about-name-line { margin: 0 0 12px; font-size: 20px; }
+  .info-name { color: var(--teal); font-weight: 700; }
+  .about-title { font-size: 17px; font-weight: 500; margin: 0 0 18px; color: #333; }
+  .about-title a { color: var(--teal); }
+  .about-links { font-size: 15px; margin: 0; }
+  .sep { margin: 0 6px; color: var(--blue); user-select: none; }
+
+  .bio-news { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; }
+  .bio { font-size: 15px; line-height: 1.7; }
+  .bio p { margin: 0 0 1.1em; }
+  .bio strong.teal { font-weight: 700; }
+  .news-col { position: relative; border-left: 1px solid var(--line); padding-left: 24px; min-height: 0; }
+  .news-col > .inner { position: absolute; inset: 0 0 0 24px; display: flex; flex-direction: column; }
+  .news-title { font-size: 20px; font-weight: 600; color: var(--teal); margin: 0 0 10px; letter-spacing: .02em; }
+  .news-list { list-style: none; margin: 0; padding: 0 6px 48px 0; overflow-y: auto; flex: 1; scrollbar-width: thin; }
+  .news-col > .inner::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 48px; background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.95)); pointer-events: none; }
+  .news-item { margin-bottom: 18px; font-size: 15px; line-height: 1.6; }
+  .news-date { display: block; font-size: 14px; color: var(--muted); margin-bottom: 6px; }
+
+  /* section headings */
+  .sec-heading { font-size: 20px; font-weight: 700; margin: 0 0 8px; letter-spacing: -.01em; }
+  .sec-sub { font-size: 15px; color: var(--muted); margin: 0 0 28px; line-height: 1.5; }
+
+  /* publication cards */
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .pub-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; padding-bottom: 18px; transition: box-shadow .2s ease; }
+  .pub-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+  .pub-img { display: flex; align-items: center; justify-content: center; background: var(--soft); padding: 12px; height: 190px; box-sizing: border-box; }
+  .pub-img img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 4px; display: block; }
+  .pub-title { font-size: 17px; font-weight: 700; color: var(--ink); margin: 14px 16px 4px; line-height: 1.3; }
+  .pub-desc { font-size: 14px; color: var(--muted); margin: 0 16px 6px; line-height: 1.5; }
+  .pub-venue { font-size: 14px; font-weight: 600; color: var(--muted); margin: 0 16px 6px; }
+  .pub-badge { align-self: flex-start; font-size: 12.5px; font-weight: 600; color: #b45309; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; margin: 2px 16px 8px; padding: 3px 10px; }
+  .pub-links { display: flex; flex-wrap: wrap; gap: 8px; margin: auto 16px 0; padding-top: 6px; }
+  .pill { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 500; color: var(--muted); padding: 4px 10px; border: 1px solid #e0e0e0; border-radius: 6px; background: #fff; transition: all .15s ease; }
+  .pill:hover { color: var(--teal); border-color: var(--teal); background: #f0fdfa; text-decoration: none; }
+  .pill svg { width: 13px; height: 13px; fill: currentColor; }
+
+  .more { margin: 30px 0 0; padding: 0; list-style: none; font-size: 14.5px; line-height: 1.6; }
+  .more li { margin-bottom: 10px; }
+  .more .v { color: var(--muted); }
+  .more b { font-weight: 600; }
+
+  /* software cards */
+  .tools { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .tool-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 14px; padding: 18px 0; transition: box-shadow .2s ease; }
+  .tool-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+  .tool-card .pub-title { margin-top: 0; }
+  .tool-card .desc { font-size: 13.5px; color: var(--muted); line-height: 1.55; margin: 0 16px 14px; }
+
+  /* education & honors */
+  .cv { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; font-size: 15px; line-height: 1.6; }
+  .cv h3 { font-size: 16px; font-weight: 700; margin: 0 0 12px; }
+  .cv ul { list-style: none; margin: 0; padding: 0; }
+  .cv li { margin-bottom: 12px; }
+  .cv .yr { display: block; font-size: 14px; color: var(--muted); }
+
+  .footer { display: flex; justify-content: center; padding: 12px 12px 32px; margin-top: 24px; font-size: 14px; color: var(--muted); }
+
+  @media (max-width: 1199px) {
+    .grid, .tools { grid-template-columns: repeat(2, 1fr); }
+    .bio-news { grid-template-columns: 1fr; }
+    .news-col { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 24px; }
+    .news-col > .inner { position: static; }
+    .news-col > .inner::after { display: none; }
+    .news-list { padding-bottom: 0; overflow: visible; }
+  }
+  @media (max-width: 1024px) { .home { width: 90%; } }
+  @media (max-width: 720px) {
+    .menu { display: none; }
+    .about-top { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 20px; }
+    .picture { max-width: 200px; }
+    .cv { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 575px) {
+    .home { width: 100%; }
+    .body { padding: 12px 16px 36px; }
+    .header { padding: 12px 16px; }
+    .logo { font-size: 22px; }
+    .grid, .tools { grid-template-columns: 1fr; }
+    .about-info, .about-greeting, .about-name-line { font-size: 18px; }
+  }
+  /* media coverage cards (16:9 image, like the impact cards) */
+  .media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .media-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 14px; background: #fff; overflow: hidden; padding-bottom: 18px; transition: box-shadow .2s ease; }
+  .media-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+  .media-img { display: block; background: var(--soft); border-bottom: 1px solid #f0f0f0; }
+  .media-img img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center top; }
+  .media-card .pub-title { margin-top: 14px; }
+  .media-card .desc { font-size: 13.5px; color: var(--muted); line-height: 1.55; margin: 0 16px 14px; }
+  @media (max-width: 1199px) { .media-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 575px) { .media-grid { grid-template-columns: 1fr; } }
+  .logo { white-space: nowrap; margin-right: 24px; }
+  .menu { flex-wrap: wrap; justify-content: flex-end; gap: 6px 18px; }
+  .menu a { white-space: nowrap; }
+  @media (max-width: 720px) {
+    .header { flex-wrap: wrap; gap: 6px; }
+    .header .menu { display: flex !important; width: 100%; justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; gap: 16px; padding-bottom: 4px; scrollbar-width: none; }
+    .header .menu a { font-size: 14px; }
+  }
+/*CORNER-CSS*/
+  /* faint, static BioRender-style illustration tucked into two corners */
+  .corner { position: fixed; width: 34vw; max-width: 460px; min-width: 260px; aspect-ratio: 1; pointer-events: none; z-index: 0; opacity: .16; }
+  .corner svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .corner.tr { top: -70px; right: -90px; }
+  .corner.bl { bottom: -80px; left: -90px; }
+  .home { position: relative; z-index: 1; }
+  @media (max-width: 720px) { .corner { opacity: .10; width: 70vw; } .corner.bl { display: none; } }
+/*/CORNER-CSS*/
+  .news-photo { display: block; width: 100%; max-height: 200px; object-fit: cover; border-radius: 8px; margin-top: 8px; border: 1px solid var(--line); }
+  .news-photo { object-position: center 30%; }
+  .news-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .news-photos .news-photo { height: 170px; margin-top: 0; }
+  .news-photos { margin-top: 8px; }
+/*PUBTABS-CSS*/
+  .pub-explorer { display: grid; grid-template-columns: 290px 1fr; gap: 28px; align-items: start; }
+  .theme-list { position: sticky; top: 16px; display: flex; flex-direction: column; gap: 4px; border-left: 2px solid var(--line); }
+  .theme { all: unset; box-sizing: border-box; cursor: pointer; display: block; padding: 10px 14px 10px 16px; margin-left: -2px; border-left: 2px solid transparent; border-radius: 0 10px 10px 0; transition: background .15s ease, border-color .15s ease; }
+  .theme:hover, .theme:focus-visible { background: #f6fbfa; }
+  .theme-name { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 15.5px; font-weight: 700; color: #333; }
+  .theme-name .n { font-size: 12.5px; font-weight: 600; color: var(--muted); background: #f3f4f6; border-radius: 999px; padding: 1px 8px; }
+  .theme-blurb { display: block; max-height: 0; overflow: hidden; opacity: 0; font-size: 13.5px; line-height: 1.5; color: var(--muted); transition: max-height .25s ease, opacity .2s ease, margin .2s ease; }
+  .theme[aria-pressed="true"] { border-left-color: var(--teal); background: #f0fdfa; }
+  .theme[aria-pressed="true"] .theme-name { color: var(--teal); }
+  .theme[aria-pressed="true"] .theme-name .n { background: var(--teal); color: #fff; }
+  .theme[aria-pressed="true"] .theme-blurb { max-height: 9em; opacity: 1; margin-top: 4px; }
+  .grid.pubs3 { grid-template-columns: repeat(3, 1fr); }
+  .pubs3 .pub-img { height: 165px; }
+  .pub-card[hidden] { display: none; }
+  .pub-card { animation: cardin .25s ease both; }
+  @keyframes cardin { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .pub-img .typeset { display: flex; flex-direction: column; justify-content: center; gap: 8px; width: 100%; height: 100%; padding: 16px; box-sizing: border-box; border-radius: 4px;
+    background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 60%, #fdf2f8 100%); border: 1px dashed #cdeee9; }
+  .pub-img .typeset .j { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); }
+  .pub-img .typeset .tt { font-size: 15px; font-weight: 700; color: #333; line-height: 1.3; }
+  @media (max-width: 1199px) { .pub-explorer { grid-template-columns: 240px 1fr; } .grid.pubs3 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 820px) {
+    .pub-explorer { grid-template-columns: 1fr; }
+    .theme-list { position: static; flex-direction: row; flex-wrap: wrap; gap: 8px; border-left: 0; }
+    .theme { padding: 6px 12px; margin: 0; border: 1px solid #e0e0e0; border-radius: 999px; }
+    .theme[aria-pressed="true"] { border-color: var(--teal); }
+    .theme-blurb { display: none; }
+    .theme-name { font-size: 13.5px; gap: 6px; }
+    .theme-list::after { content: attr(data-blurb); flex-basis: 100%; font-size: 14px; color: var(--muted); line-height: 1.5; margin-top: 4px; }
+  }
+  @media (max-width: 575px) { .grid.pubs3 { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .pub-card { animation: none; } .theme-blurb { transition: none; } }
+/*/PUBTABS-CSS*/
+/*MEDIA-CSS*/
+  .featured-in { display: flex; align-items: center; gap: 18px; padding: 14px 18px; margin: 0 0 28px; border: 1px solid var(--line); border-radius: 14px; background: #fcfcfc; }
+  .fi-label { flex: none; font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .fi-logos { display: flex; flex-wrap: wrap; gap: 10px 14px; }
+  .feat-logo { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 13px; font-weight: 600; filter: grayscale(1); opacity: .75; transition: filter .2s, opacity .2s, color .2s; }
+  .feat-logo:hover { filter: none; opacity: 1; color: var(--ink); text-decoration: none; }
+  .logo { width: 26px; height: 26px; border-radius: 6px; object-fit: contain; flex: none; background: #fff; }
+  .logo.txt { display: inline-grid; place-items: center; font-size: 8px; font-weight: 800; letter-spacing: 0; color: #fff; background: #4b5563; }
+  .stories { display: flex; flex-direction: column; gap: 22px; }
+  .story { display: grid; grid-template-columns: 240px 1fr; gap: 20px; align-items: start; padding-bottom: 22px; border-bottom: 1px solid #f0f0f0; }
+  .story:last-child { border-bottom: 0; padding-bottom: 0; }
+  .story-paper { display: flex; flex-direction: column; gap: 10px; }
+  .story-paper img { width: 100%; height: 130px; object-fit: cover; object-position: center top; border-radius: 10px; border: 1px solid var(--line); background: var(--soft); }
+  .story-venue { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--teal); }
+  .story-topic { font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.3; margin-top: 2px; }
+  .story-count { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .articles { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .article { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink); transition: box-shadow .2s, border-color .2s, transform .2s; }
+  .article:hover { text-decoration: none; color: var(--ink); border-color: #cdeee9; box-shadow: 0 4px 16px rgba(0,0,0,.07); transform: translateY(-1px); }
+  .article-head { display: flex; align-items: center; gap: 8px; }
+  .article .outlet { font-size: 13px; font-weight: 700; }
+  .article .date { margin-left: auto; font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .article .headline { font-size: 14px; line-height: 1.45; color: #333; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  @media (max-width: 820px) { .story { grid-template-columns: 1fr; } .story-paper { flex-direction: row; align-items: center; } .story-paper img { width: 120px; height: 84px; } .featured-in { flex-direction: column; align-items: flex-start; } }
+/*/MEDIA-CSS*/
+</style>
+<style>
+  .life-hero { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 8px 0 24px; }
+  .life-hero p { font-size: 16px; line-height: 1.7; color: #333; max-width: 60ch; margin: 0; }
+  .races { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+  .race { display: grid; grid-template-columns: 1fr 320px; gap: 24px; align-items: start; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+  .race-photo { width: 100%; max-height: 420px; object-fit: cover; object-position: center 25%; border-radius: 10px; }
+  @media (max-width: 720px) { .race { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<!--CORNER-DEFS-->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="gCancer" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#fff0f4"/><stop offset=".55" stop-color="#f9c9d6"/><stop offset="1" stop-color="#ee9fb5"/></radialGradient>
+    <radialGradient id="gNuc" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#d9c9f4"/><stop offset="1" stop-color="#9c7fd6"/></radialGradient>
+    <linearGradient id="gRod" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6f5ec"/><stop offset=".5" stop-color="#9fe0cd"/><stop offset="1" stop-color="#6cc8ad"/></linearGradient>
+    <linearGradient id="gRodPks" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3f0ff"/><stop offset=".5" stop-color="#b3d4fb"/><stop offset="1" stop-color="#80b4f0"/></linearGradient>
+    <radialGradient id="gCoc" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#fff4dc"/><stop offset="1" stop-color="#f7c873"/></radialGradient>
+    <radialGradient id="gTcell" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#eef7ff"/><stop offset="1" stop-color="#a9cdf2"/></radialGradient>
+
+    <!-- tumour cell: irregular membrane, blebs, large nucleus -->
+    <symbol id="sCancer" viewBox="0 0 100 100">
+      <circle cx="90" cy="42" r="6" fill="url(#gCancer)" stroke="#d97b97" stroke-width="2"/>
+      <circle cx="24" cy="88" r="5" fill="url(#gCancer)" stroke="#d97b97" stroke-width="2"/>
+      <circle cx="70" cy="9" r="4.5" fill="url(#gCancer)" stroke="#d97b97" stroke-width="2"/>
+      <path d="M50 8C66 6 80 16 86 30C94 44 89 58 91 70C89 84 74 92 60 90C48 96 32 94 22 84C10 76 6 60 12 48C8 34 18 18 32 14C38 10 44 9 50 8Z" fill="url(#gCancer)" stroke="#d97b97" stroke-width="2.6"/>
+      <path d="M48 31C61 29 69 40 67 52C65 65 52 69 42 65C31 61 29 48 35 40C39 34 43 32 48 31Z" fill="url(#gNuc)" stroke="#7c5cba" stroke-width="2"/>
+      <circle cx="53" cy="47" r="5" fill="#6d4bab" opacity=".85"/>
+      <circle cx="44" cy="55" r="2.6" fill="#6d4bab" opacity=".6"/>
+      <circle cx="24" cy="36" r="2.4" fill="#e58aa5" opacity=".7"/><circle cx="74" cy="70" r="2.8" fill="#e58aa5" opacity=".7"/><circle cx="30" cy="72" r="2" fill="#e58aa5" opacity=".7"/>
+      <ellipse cx="34" cy="24" rx="10" ry="5" fill="#fff" opacity=".45" transform="rotate(-25 34 24)"/>
+    </symbol>
+
+    <!-- rod bacterium (E. coli) with waving flagella -->
+    <symbol id="sRod" viewBox="0 0 160 60">
+      <g fill="none" stroke="#3fa58c" stroke-width="1.6" stroke-linecap="round" opacity=".75">
+        <path d="M118 30c8-6 14 6 22 0s14 6 20 0"></path>
+        <path d="M112 18c7-8 15 0 22-8s13 2 19-5"></path>
+        <path d="M112 42c7 8 15 0 22 8s13-2 19 5"></path>
+      </g>
+      <rect x="22" y="14" width="96" height="32" rx="16" fill="url(#gRod)" stroke="#3fa58c" stroke-width="2.2"/>
+      <path d="M44 30c6-6 12 6 18 0s12 6 18 0s10 4 14 0" fill="none" stroke="#2f8f78" stroke-width="1.6" opacity=".55"/>
+      <ellipse cx="54" cy="21" rx="20" ry="3.2" fill="#fff" opacity=".5"/>
+    </symbol>
+
+    <!-- pks+ E. coli: colibactin-producing, with the toxin released as small dots -->
+    <symbol id="sPks" viewBox="0 0 160 60">
+      <g fill="none" stroke="#3d7fd1" stroke-width="1.6" stroke-linecap="round" opacity=".75">
+        <path d="M22 30c-8-6-14 6-22 0"></path>
+      </g>
+      <rect x="22" y="14" width="96" height="32" rx="16" fill="url(#gRodPks)" stroke="#3d7fd1" stroke-width="2.2"/>
+      <path d="M44 30c6-6 12 6 18 0s12 6 18 0s10 4 14 0" fill="none" stroke="#2c66b0" stroke-width="1.6" opacity=".5"/>
+      <ellipse cx="54" cy="21" rx="20" ry="3.2" fill="#fff" opacity=".55"/>
+      <g fill="#c2185b">
+        <circle cx="128" cy="24" r="2.6"></circle>
+        <circle cx="128" cy="36" r="2.2"></circle>
+        <circle cx="128" cy="30" r="2"></circle>
+      </g>
+    </symbol>
+
+    <!-- coccus chain (streptococci) -->
+    <symbol id="sCocci" viewBox="0 0 130 40">
+      <g stroke="#d99a36" stroke-width="2">
+        <circle cx="18" cy="20" r="14" fill="url(#gCoc)"/><circle cx="46" cy="22" r="14" fill="url(#gCoc)"/>
+        <circle cx="74" cy="19" r="14" fill="url(#gCoc)"/><circle cx="102" cy="21" r="14" fill="url(#gCoc)"/>
+      </g>
+      <g fill="#fff" opacity=".55"><ellipse cx="13" cy="14" rx="5" ry="2.6"/><ellipse cx="41" cy="16" rx="5" ry="2.6"/><ellipse cx="69" cy="13" rx="5" ry="2.6"/><ellipse cx="97" cy="15" rx="5" ry="2.6"/></g>
+    </symbol>
+
+    <!-- immune T cell with microvilli -->
+    <symbol id="sTcell" viewBox="0 0 80 80">
+      <g stroke="#6d9fd6" stroke-width="2" stroke-linecap="round">
+        <path d="M40 4v6M40 70v6M4 40h6M70 40h6M14 14l5 5M61 61l5 5M66 14l-5 5M19 61l-5 5"/>
+      </g>
+      <circle cx="40" cy="40" r="28" fill="url(#gTcell)" stroke="#6d9fd6" stroke-width="2.4"/>
+      <circle cx="42" cy="42" r="17" fill="#7fa6dc" stroke="#4f7fc0" stroke-width="1.6"/>
+      <ellipse cx="30" cy="27" rx="8" ry="4" fill="#fff" opacity=".5" transform="rotate(-30 30 27)"/>
+    </symbol>
+
+    <!-- DNA fragment with a mutated base -->
+    <symbol id="sDNA" viewBox="0 0 140 50">
+      <g stroke-width="2.4" fill="none" stroke-linecap="round">
+        <path d="M4 25C20 5 36 5 52 25S84 45 100 25S124 5 136 18" stroke="#7c5cba"/>
+        <path d="M4 25C20 45 36 45 52 25S84 5 100 25S124 45 136 32" stroke="#0d9488"/>
+      </g>
+      <g stroke="#b9b0cc" stroke-width="2"><path d="M14 14v22M26 9v32M40 11v28M64 11v28M76 9v32M88 14v22M112 11v28M124 9v24"/></g>
+      <path d="M52 17v16" stroke="#e5396e" stroke-width="3.2"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="corner tr" aria-hidden="true"><svg viewBox="0 0 440 440"><use href="#sCancer" x="250" y="18" width="120" height="120" transform="rotate(-8 310.0 78.0)" opacity="1"/><use href="#sRod" x="150" y="130" width="150" height="56" transform="rotate(22 225.0 158.0)" opacity="1"/><use href="#sCocci" x="300" y="150" width="110" height="34" transform="rotate(-18 355.0 167.0)" opacity="1"/><use href="#sTcell" x="175" y="40" width="60" height="60" transform="rotate(0 205.0 70.0)" opacity="1"/><use href="#sDNA" x="210" y="215" width="150" height="54" transform="rotate(-32 285.0 242.0)" opacity="1"/><use href="#sPks" x="330" y="250" width="120" height="45" transform="rotate(58 390.0 272.5)" opacity="1"/><use href="#sCancer" x="360" y="330" width="64" height="64" transform="rotate(20 392.0 362.0)" opacity="0.8"/></svg></div>
+<div class="corner bl" aria-hidden="true"><svg viewBox="0 0 440 440"><use href="#sCancer" x="20" y="230" width="130" height="130" transform="rotate(12 85.0 295.0)" opacity="1"/><use href="#sPks" x="140" y="290" width="150" height="56" transform="rotate(-14 215.0 318.0)" opacity="1"/><use href="#sCocci" x="40" y="175" width="110" height="34" transform="rotate(30 95.0 192.0)" opacity="1"/><use href="#sTcell" x="170" y="215" width="54" height="54" transform="rotate(0 197.0 242.0)" opacity="1"/><use href="#sDNA" x="0" y="120" width="150" height="54" transform="rotate(62 75.0 147.0)" opacity="1"/><use href="#sRod" x="40" y="70" width="120" height="45" transform="rotate(-55 100.0 92.5)" opacity="1"/><use href="#sCancer" x="210" y="330" width="60" height="60" transform="rotate(-10 240.0 360.0)" opacity="0.8"/></svg></div>
+<!--/CORNER-DEFS-->
+<div class="home">
+  <header class="header">
+    <a class="logo" href="index.html">Ammal Abbasi</a>
+    <nav class="menu"><a href="index.html#about">About</a><a href="index.html#publications">Publications</a><a href="index.html#media">News</a><a href="index.html#outreach">Mentoring</a><a href="index.html#cv">CV</a><a href="running.html" aria-current="page">Running</a></nav>
+  </header>
+  <main class="body">
+    <h2 class="sec-heading">Outside the <span class="teal">Lab</span></h2>
+    <div class="life-hero">
+      <p>When I'm not working on cancer genomes, I'm training for marathons. Here's a running log of races and the moments around them.</p>
+    </div>
+    <hr class="divider">
+    <h2 class="sec-heading">Race <span class="teal">Log</span></h2>
+    <ul class="races">
+        <li class="race">
+          <div class="race-meta"><span class="news-date">Nov 2025</span><div class="pub-title" style="margin:0">Philadelphia Marathon weekend</div><p class="desc" style="margin:4px 0 0">Picking up my bib at the race expo.</p></div>
+          <img class="race-photo" src="assets/life/philly2025_expo.jpg" alt="Philadelphia Marathon weekend" loading="lazy">
+        </li>
+    </ul>
+  </main>
+  <footer class="footer">© 2026 Ammal Abbasi · <a href="index.html" style="margin-left:6px">Back to research</a></footer>
+</div>
+</body>
+</html>
