@@ -172,40 +172,6 @@
   .news-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
   .news-photos .news-photo { height: 170px; margin-top: 0; }
   .news-photos { margin-top: 8px; }
-/*PUBTABS-CSS*/
-  .pub-explorer { display: grid; grid-template-columns: 290px 1fr; gap: 28px; align-items: start; }
-  .theme-list { position: sticky; top: 16px; display: flex; flex-direction: column; gap: 4px; border-left: 2px solid var(--line); }
-  .theme { all: unset; box-sizing: border-box; cursor: pointer; display: block; padding: 10px 14px 10px 16px; margin-left: -2px; border-left: 2px solid transparent; border-radius: 0 10px 10px 0; transition: background .15s ease, border-color .15s ease; }
-  .theme:hover, .theme:focus-visible { background: #f6fbfa; }
-  .theme-name { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 15.5px; font-weight: 700; color: #333; }
-  .theme-name .n { font-size: 12.5px; font-weight: 600; color: var(--muted); background: #f3f4f6; border-radius: 999px; padding: 1px 8px; }
-  .theme-blurb { display: block; max-height: 0; overflow: hidden; opacity: 0; font-size: 13.5px; line-height: 1.5; color: var(--muted); transition: max-height .25s ease, opacity .2s ease, margin .2s ease; }
-  .theme[aria-pressed="true"] { border-left-color: var(--teal); background: #f0fdfa; }
-  .theme[aria-pressed="true"] .theme-name { color: var(--teal); }
-  .theme[aria-pressed="true"] .theme-name .n { background: var(--teal); color: #fff; }
-  .theme[aria-pressed="true"] .theme-blurb { max-height: 9em; opacity: 1; margin-top: 4px; }
-  .grid.pubs3 { grid-template-columns: repeat(3, 1fr); }
-  .pubs3 .pub-img { height: 165px; }
-  .pub-card[hidden] { display: none; }
-  .pub-card { animation: cardin .25s ease both; }
-  @keyframes cardin { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-  .pub-img .typeset { display: flex; flex-direction: column; justify-content: center; gap: 8px; width: 100%; height: 100%; padding: 16px; box-sizing: border-box; border-radius: 4px;
-    background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 60%, #fdf2f8 100%); border: 1px dashed #cdeee9; }
-  .pub-img .typeset .j { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); }
-  .pub-img .typeset .tt { font-size: 15px; font-weight: 700; color: #333; line-height: 1.3; }
-  @media (max-width: 1199px) { .pub-explorer { grid-template-columns: 240px 1fr; } .grid.pubs3 { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 820px) {
-    .pub-explorer { grid-template-columns: 1fr; }
-    .theme-list { position: static; flex-direction: row; flex-wrap: wrap; gap: 8px; border-left: 0; }
-    .theme { padding: 6px 12px; margin: 0; border: 1px solid #e0e0e0; border-radius: 999px; }
-    .theme[aria-pressed="true"] { border-color: var(--teal); }
-    .theme-blurb { display: none; }
-    .theme-name { font-size: 13.5px; gap: 6px; }
-    .theme-list::after { content: attr(data-blurb); flex-basis: 100%; font-size: 14px; color: var(--muted); line-height: 1.5; margin-top: 4px; }
-  }
-  @media (max-width: 575px) { .grid.pubs3 { grid-template-columns: 1fr; } }
-  @media (prefers-reduced-motion: reduce) { .pub-card { animation: none; } .theme-blurb { transition: none; } }
-/*/PUBTABS-CSS*/
   .lead-q { font-size: 22px; font-weight: 700; color: var(--teal); margin: 0 0 10px !important; letter-spacing: -.01em; }
   .pillars { list-style: none; margin: 4px 0 18px; padding: 0; display: grid; gap: 10px; }
   .pillars li { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: start; padding: 10px 14px; border: 1px solid var(--line); border-left: 3px solid var(--teal); border-radius: 10px; background: #fcfffe; font-size: 14.5px; line-height: 1.55; }
@@ -216,8 +182,8 @@
   .featured-in { display: flex; align-items: center; gap: 18px; padding: 14px 18px; margin: 0 0 24px; border: 1px solid var(--line); border-radius: 14px; background: #fcfcfc; }
   .fi-label { flex: none; font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
   .fi-logos { display: flex; flex-wrap: wrap; gap: 10px 14px; }
-  .feat-logo { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 13px; font-weight: 600; filter: grayscale(1); opacity: .75; transition: filter .2s, opacity .2s, color .2s; }
-  .feat-logo:hover { filter: none; opacity: 1; color: var(--ink); text-decoration: none; }
+  .feat-logo { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); font-size: 13px; font-weight: 600; transition: color .2s; }
+  .feat-logo:hover { color: var(--teal); text-decoration: none; }
   .logo { width: 26px; height: 26px; border-radius: 6px; object-fit: contain; flex: none; background: #fff; }
   .logo.big { width: 44px; height: 44px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
   .logo.txt { display: inline-grid; place-items: center; font-size: 8px; font-weight: 800; letter-spacing: 0; color: #fff; background: #4b5563; }
@@ -245,6 +211,50 @@
   @media (max-width: 1199px) { .press { flex-basis: calc((100% - 18px) / 2); } }
   @media (max-width: 720px) { .press { flex-basis: 86%; } .pnav { display: none; } .featured-in { flex-direction: column; align-items: flex-start; } }
 /*/MEDIA-CSS*/
+/*PUBTABS-CSS*/
+  .pub-explorer { display: grid; grid-template-columns: 290px 1fr; gap: 28px; align-items: start; }
+  .theme-list { position: sticky; top: 16px; display: flex; flex-direction: column; gap: 4px; border-left: 2px solid var(--line); }
+  .theme { all: unset; box-sizing: border-box; cursor: pointer; display: block; padding: 10px 14px 10px 16px; margin-left: -2px; border-left: 2px solid transparent; border-radius: 0 10px 10px 0; transition: background .15s ease, border-color .15s ease; }
+  .theme:hover, .theme:focus-visible { background: #f6fbfa; }
+  .theme-name { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 15.5px; font-weight: 700; color: #333; }
+  .theme-name .n { font-size: 12.5px; font-weight: 600; color: var(--muted); background: #f3f4f6; border-radius: 999px; padding: 1px 8px; }
+  .theme-blurb { display: block; max-height: 0; overflow: hidden; opacity: 0; font-size: 13.5px; line-height: 1.5; color: var(--muted); transition: max-height .25s ease, opacity .2s ease, margin .2s ease; }
+  .theme[aria-pressed="true"] { border-left-color: var(--teal); background: #f0fdfa; }
+  .theme[aria-pressed="true"] .theme-name { color: var(--teal); }
+  .theme[aria-pressed="true"] .theme-name .n { background: var(--teal); color: #fff; }
+  .theme[aria-pressed="true"] .theme-blurb { max-height: 9em; opacity: 1; margin-top: 4px; }
+  .grid.pubs3 { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .pubs3 .pub-card { border-radius: 12px; padding-bottom: 12px; }
+  .pubs3 .pub-img { height: 110px; padding: 8px; }
+  .pubs3 .pub-title { font-size: 14.5px; margin: 10px 12px 3px; }
+  .pubs3 .pub-desc { font-size: 12.5px; margin: 0 12px 4px; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .pubs3 .pub-venue { font-size: 12.5px; margin: 0 12px 4px; }
+  .pubs3 .pub-badge { font-size: 11.5px; margin: 2px 12px 6px; padding: 2px 8px; }
+  .pubs3 .pub-links { margin: auto 12px 0; gap: 6px; }
+  .pubs3 .pill { font-size: 11.5px; padding: 2px 7px; gap: 0; }
+  .pubs3 .pill svg { display: none; }
+  .pubs3 .pub-links { flex-wrap: wrap; gap: 5px; }
+  .pub-card[hidden] { display: none; }
+  .pub-card { animation: cardin .25s ease both; }
+  @keyframes cardin { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .pub-img .typeset { display: flex; flex-direction: column; justify-content: center; gap: 8px; width: 100%; height: 100%; padding: 16px; box-sizing: border-box; border-radius: 4px;
+    background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 60%, #fdf2f8 100%); border: 1px dashed #cdeee9; }
+  .pub-img .typeset .j { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); }
+  .pub-img .typeset .tt { font-size: 15px; font-weight: 700; color: #333; line-height: 1.3; }
+  @media (max-width: 1199px) { .pub-explorer { grid-template-columns: 240px 1fr; } .grid.pubs3 { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 1000px) { .grid.pubs3 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 820px) {
+    .pub-explorer { grid-template-columns: 1fr; }
+    .theme-list { position: static; flex-direction: row; flex-wrap: wrap; gap: 8px; border-left: 0; }
+    .theme { padding: 6px 12px; margin: 0; border: 1px solid #e0e0e0; border-radius: 999px; }
+    .theme[aria-pressed="true"] { border-color: var(--teal); }
+    .theme-blurb { display: none; }
+    .theme-name { font-size: 13.5px; gap: 6px; }
+    .theme-list::after { content: attr(data-blurb); flex-basis: 100%; font-size: 14px; color: var(--muted); line-height: 1.5; margin-top: 4px; }
+  }
+  @media (max-width: 575px) { .grid.pubs3 { grid-template-columns: 1fr 1fr; gap: 10px; } .pubs3 .pub-img { height: 90px; } }
+  @media (prefers-reduced-motion: reduce) { .pub-card { animation: none; } .theme-blurb { transition: none; } }
+/*/PUBTABS-CSS*/
 </style>
 </head>
 <body>
@@ -541,11 +551,29 @@
 
     <section id="media">
       <h2 class="sec-heading">In the <span class="teal">News</span></h2>
-      <p class="sec-sub">18 articles in 16 outlets have covered research I contributed to.</p>
-      <div class="featured-in"><span class="fi-label">As featured in</span><div class="fi-logos"><a class="feat-logo" href="https://www.nationalgeographic.com/health/article/gut-toxins-colon-cancer-early-diagnosis" target="_blank" rel="noopener" title="National Geographic: Colon cancer is rising in young people. Finally, scientists have a clue about why"><img class="logo" src="assets/outlets/national-geographic.png" alt="" loading="lazy"><span class="feat-name">National Geographic</span></a><a class="feat-logo" href="https://sciencedaily.com/releases/2025/04/250423120654.htm" target="_blank" rel="noopener" title="ScienceDaily: Childhood exposure to bacterial toxin may be triggering colorectal cancer epidemic in younger adults"><img class="logo" src="assets/outlets/sciencedaily.png" alt="" loading="lazy"><span class="feat-name">ScienceDaily</span></a><a class="feat-logo" href="https://www.discovermagazine.com/childhood-bacteria-exposure-linked-to-early-cancer-risk-47458" target="_blank" rel="noopener" title="Discover: Childhood Bacteria Exposure Linked to Early Cancer Risk"><img class="logo" src="assets/outlets/discover.png" alt="" loading="lazy"><span class="feat-name">Discover</span></a><a class="feat-logo" href="https://www.foxnews.com/health/exposure-toxin-increases-colorectal-cancer-risk-younger-adults-study-finds" target="_blank" rel="noopener" title="Fox News: Exposure to toxin increases colorectal cancer risk among younger adults, study finds"><img class="logo" src="assets/outlets/fox-news.png" alt="" loading="lazy"><span class="feat-name">Fox News</span></a><a class="feat-logo" href="https://www.sciencealert.com/?p=159331" target="_blank" rel="noopener" title="ScienceAlert: One Cancer Is Rising Rapidly in Younger People, And Bacteria Could Be Why"><img class="logo" src="assets/outlets/sciencealert.png" alt="" loading="lazy"><span class="feat-name">ScienceAlert</span></a><a class="feat-logo" href="https://ascopost.com/news/april-2025/childhood-exposure-to-bacterial-toxin-may-trigger-early-onset-colorectal-cancer/" target="_blank" rel="noopener" title="The ASCO Post: Childhood Exposure to Bacterial Toxin May Trigger Early-Onset Colorectal Cancer"><span class="logo txt">ASCO</span><span class="feat-name">The ASCO Post</span></a><a class="feat-logo" href="https://www.healthday.com/healthpro-news/cancer/early-life-exposure-to-certain-bacteria-may-impact-early-onset-colorectal-cancer-incidence" target="_blank" rel="noopener" title="HealthDay: Early-Life Exposure to Certain Bacteria May Impact Early-Onset Colorectal Cancer Incidence"><img class="logo" src="assets/outlets/healthday.png" alt="" loading="lazy"><span class="feat-name">HealthDay</span></a><a class="feat-logo" href="https://today.ucsd.edu/story/precision-oncology-via-artificial-intelligence-on-cancer-biopsies" target="_blank" rel="noopener" title="UC San Diego Today: Precision Oncology via Artificial Intelligence on Cancer Biopsies"><img class="logo" src="assets/outlets/uc-san-diego-today.png" alt="" loading="lazy"><span class="feat-name">UC San Diego Today</span></a><a class="feat-logo" href="https://www.diagnosticsworldnews.com/news/2024/08/20/ai-predicts-cancer-treatment-response-directly-from-tissue-slides" target="_blank" rel="noopener" title="Diagnostics World: AI Predicts Cancer Treatment Response Directly From Tissue Slides"><img class="logo" src="assets/outlets/diagnostics-world.png" alt="" loading="lazy"><span class="feat-name">Diagnostics World</span></a><a class="feat-logo" href="https://www.labmanager.com/precision-oncology-via-artificial-intelligence-on-cancer-biopsies-32626" target="_blank" rel="noopener" title="Lab Manager: Precision Oncology via Artificial Intelligence on Cancer Biopsies"><span class="logo txt">LM</span><span class="feat-name">Lab Manager</span></a><a class="feat-logo" href="https://www.iarc.who.int/news-events/the-complexity-of-tobacco-smoke-induced-mutagenesis-in-head-and-neck-cancer" target="_blank" rel="noopener" title="IARC / WHO: The complexity of tobacco smoke-induced mutagenesis in head and neck cancer"><img class="logo" src="assets/outlets/iarc-who.png" alt="" loading="lazy"><span class="feat-name">IARC / WHO</span></a><a class="feat-logo" href="https://www.cancergrandchallenges.org/news/mapping-mutational-signatures-across-the-globe-uncovers-cooperation-between-tobacco-and" target="_blank" rel="noopener" title="Cancer Grand Challenges: Mapping mutational signatures across the globe uncovers cooperation between tobacco and alcohol"><img class="logo" src="assets/outlets/cancer-grand-challenges.png" alt="" loading="lazy"><span class="feat-name">Cancer Grand Challenges</span></a><a class="feat-logo" href="https://ecancer.org/en/news/22951-how-a-virus-causes-chromosomal-breakage-leading-to-cancer" target="_blank" rel="noopener" title="ecancer: How a virus causes chromosomal breakage, leading to cancer"><img class="logo" src="assets/outlets/ecancer.png" alt="" loading="lazy"><span class="feat-name">ecancer</span></a><a class="feat-logo" href="https://www.azolifesciences.com/news/20230417/Researchers-Show-How-a-Virus-can-Induce-Cleavage-of-Human-Chromosome-11-to-Cause-Cancer.aspx" target="_blank" rel="noopener" title="AZoLifeSciences: Researchers Show How a Virus can Induce Cleavage of Human Chromosome 11 to Cause Cancer"><img class="logo" src="assets/outlets/azolifesciences.png" alt="" loading="lazy"><span class="feat-name">AZoLifeSciences</span></a><a class="feat-logo" href="https://ecancer.org/en/news/23348-researchers-pinpoint-protein-tied-to-drug-resistance-in-patients-with-lung-cancer" target="_blank" rel="noopener" title="Mass General Brigham: Researchers pinpoint protein tied to drug resistance in patients with lung cancer"><span class="logo txt">MGB</span><span class="feat-name">Mass General Brigham</span></a><a class="feat-logo" href="https://www.ludwigcancerresearch.org/ludwig-link/november-2023/a-novel-mechanism-for-evolution-of-drug-resistance-in-lung-cancers/" target="_blank" rel="noopener" title="Ludwig Cancer Research: A novel mechanism for evolution of drug resistance in lung cancers"><img class="logo" src="assets/outlets/ludwig-cancer-research.png" alt="" loading="lazy"><span class="feat-name">Ludwig Cancer Research</span></a></div></div>
+      <p class="sec-sub">29 articles in 25 outlets have covered research I contributed to.</p>
+      <div class="featured-in"><span class="fi-label">As featured in</span><div class="fi-logos"><a class="feat-logo" href="https://www.npr.org/2025/04/24/nx-s1-5374086/toxin-may-be-factor-in-rise-of-colonrectal-cancer-in-younger-people-study-finds" target="_blank" rel="noopener" title="NPR: Toxin may be factor in rise of colorectal cancer in younger people, study finds"><img class="logo" src="assets/outlets/npr.png" alt="" loading="lazy"><span class="feat-name">NPR</span></a><a class="feat-logo" href="https://www.nationalgeographic.com/health/article/gut-toxins-colon-cancer-early-diagnosis" target="_blank" rel="noopener" title="National Geographic: Colon cancer is rising in young people. Finally, scientists have a clue about why"><img class="logo" src="assets/outlets/national-geographic.png" alt="" loading="lazy"><span class="feat-name">National Geographic</span></a><a class="feat-logo" href="https://www.usnews.com/news/health-news/articles/2025-04-28/bacterial-toxin-implicated-in-young-adult-colon-cancers" target="_blank" rel="noopener" title="U.S. News &amp; World Report: Bacterial Toxin Implicated In Young Adult Colon Cancers"><img class="logo" src="assets/outlets/u-s-news-world-report.png" alt="" loading="lazy"><span class="feat-name">U.S. News &amp; World Report</span></a><a class="feat-logo" href="https://www.foxnews.com/health/exposure-toxin-increases-colorectal-cancer-risk-younger-adults-study-finds" target="_blank" rel="noopener" title="Fox News: Exposure to toxin increases colorectal cancer risk among younger adults, study finds"><img class="logo" src="assets/outlets/fox-news.png" alt="" loading="lazy"><span class="feat-name">Fox News</span></a><a class="feat-logo" href="https://www.yahoo.com/news/gut-toxin-may-critical-piece-184955915.html" target="_blank" rel="noopener" title="Yahoo News: Gut toxin may be a &#x27;critical piece of the puzzle&#x27; behind the rise in early-onset colorectal cancer"><img class="logo" src="assets/outlets/yahoo-news.png" alt="" loading="lazy"><span class="feat-name">Yahoo News</span></a><a class="feat-logo" href="https://theweek.com/health/colobactin-colorectal-cancer-health" target="_blank" rel="noopener" title="The Week: A bacterial toxin could be contributing to the colorectal cancer rise in young people"><img class="logo" src="assets/outlets/the-week.png" alt="" loading="lazy"><span class="feat-name">The Week</span></a><a class="feat-logo" href="https://katiecouric.com/health/colon-cancer-study-gut-toxin-colibactin/" target="_blank" rel="noopener" title="Katie Couric Media: Could This Toxin Be Behind the Rise of Early Onset Colon Cancer?"><img class="logo" src="assets/outlets/katie-couric-media.png" alt="" loading="lazy"><span class="feat-name">Katie Couric Media</span></a><a class="feat-logo" href="https://www.the-scientist.com/childhood-exposure-to-bacterial-toxin-tied-to-early-onset-colorectal-cancer-72952" target="_blank" rel="noopener" title="The Scientist: Colorectal Cancer and Childhood Exposure to a Common Gut Bacteria"><img class="logo" src="assets/outlets/the-scientist.png" alt="" loading="lazy"><span class="feat-name">The Scientist</span></a><a class="feat-logo" href="https://www.discovermagazine.com/childhood-bacteria-exposure-linked-to-early-cancer-risk-47458" target="_blank" rel="noopener" title="Discover: Childhood Bacteria Exposure Linked to Early Cancer Risk"><img class="logo" src="assets/outlets/discover.png" alt="" loading="lazy"><span class="feat-name">Discover</span></a><a class="feat-logo" href="https://www.sciencealert.com/?p=159331" target="_blank" rel="noopener" title="ScienceAlert: One Cancer Is Rising Rapidly in Younger People, And Bacteria Could Be Why"><img class="logo" src="assets/outlets/sciencealert.png" alt="" loading="lazy"><span class="feat-name">ScienceAlert</span></a><a class="feat-logo" href="https://www.medscape.com/viewarticle/could-kids-gut-bacteria-trigger-young-colorectal-cancer-2025a1000f67" target="_blank" rel="noopener" title="Medscape: Could Kids&#x27; Gut Bacteria Trigger Young Colorectal Cancer?"><img class="logo" src="assets/outlets/medscape.png" alt="" loading="lazy"><span class="feat-name">Medscape</span></a><a class="feat-logo" href="https://news.cancerresearchuk.org/2025/04/23/colibactin-e-coli-early-onset-bowel-cancer/" target="_blank" rel="noopener" title="Cancer Research UK: E. coli toxin could be linked to rising rates of bowel cancer in younger adults"><img class="logo" src="assets/outlets/cancer-research-uk.png" alt="" loading="lazy"><span class="feat-name">Cancer Research UK</span></a><a class="feat-logo" href="https://www.sanger.ac.uk/news_item/childhood-exposure-to-bacterial-toxin-may-be-triggering-colorectal-cancer-epidemic-among-the-young/" target="_blank" rel="noopener" title="Wellcome Sanger Institute: Childhood exposure to bacterial toxin may be triggering colorectal cancer epidemic among the young"><img class="logo" src="assets/outlets/wellcome-sanger-institute.png" alt="" loading="lazy"><span class="feat-name">Wellcome Sanger Institute</span></a><a class="feat-logo" href="https://today.ucsd.edu/story/childhood-exposure-to-bacterial-toxin-may-be-triggering-colorectal-cancer-epidemic-among-the-young" target="_blank" rel="noopener" title="UC San Diego Today: Childhood Exposure to Bacterial Toxin May Be Triggering Colorectal Cancer Epidemic Among the Young"><img class="logo" src="assets/outlets/uc-san-diego-today.png" alt="" loading="lazy"><span class="feat-name">UC San Diego Today</span></a><a class="feat-logo" href="https://ascopost.com/news/april-2025/childhood-exposure-to-bacterial-toxin-may-trigger-early-onset-colorectal-cancer/" target="_blank" rel="noopener" title="The ASCO Post: Childhood Exposure to Bacterial Toxin May Trigger Early-Onset Colorectal Cancer"><span class="logo txt">ASCO</span><span class="feat-name">The ASCO Post</span></a><a class="feat-logo" href="https://sciencedaily.com/releases/2025/04/250423120654.htm" target="_blank" rel="noopener" title="ScienceDaily: Childhood exposure to bacterial toxin may be triggering colorectal cancer epidemic in younger adults"><img class="logo" src="assets/outlets/sciencedaily.png" alt="" loading="lazy"><span class="feat-name">ScienceDaily</span></a><a class="feat-logo" href="https://www.healthday.com/healthpro-news/cancer/early-life-exposure-to-certain-bacteria-may-impact-early-onset-colorectal-cancer-incidence" target="_blank" rel="noopener" title="HealthDay: Early-Life Exposure to Certain Bacteria May Impact Early-Onset Colorectal Cancer Incidence"><img class="logo" src="assets/outlets/healthday.png" alt="" loading="lazy"><span class="feat-name">HealthDay</span></a><a class="feat-logo" href="https://www.diagnosticsworldnews.com/news/2024/08/20/ai-predicts-cancer-treatment-response-directly-from-tissue-slides" target="_blank" rel="noopener" title="Diagnostics World: AI Predicts Cancer Treatment Response Directly From Tissue Slides"><img class="logo" src="assets/outlets/diagnostics-world.png" alt="" loading="lazy"><span class="feat-name">Diagnostics World</span></a><a class="feat-logo" href="https://www.labmanager.com/precision-oncology-via-artificial-intelligence-on-cancer-biopsies-32626" target="_blank" rel="noopener" title="Lab Manager: Precision Oncology via Artificial Intelligence on Cancer Biopsies"><span class="logo txt">LM</span><span class="feat-name">Lab Manager</span></a><a class="feat-logo" href="https://www.iarc.who.int/news-events/the-complexity-of-tobacco-smoke-induced-mutagenesis-in-head-and-neck-cancer" target="_blank" rel="noopener" title="IARC / WHO: The complexity of tobacco smoke-induced mutagenesis in head and neck cancer"><img class="logo" src="assets/outlets/iarc-who.png" alt="" loading="lazy"><span class="feat-name">IARC / WHO</span></a><a class="feat-logo" href="https://www.cancergrandchallenges.org/news/mapping-mutational-signatures-across-the-globe-uncovers-cooperation-between-tobacco-and" target="_blank" rel="noopener" title="Cancer Grand Challenges: Mapping mutational signatures across the globe uncovers cooperation between tobacco and alcohol"><img class="logo" src="assets/outlets/cancer-grand-challenges.png" alt="" loading="lazy"><span class="feat-name">Cancer Grand Challenges</span></a><a class="feat-logo" href="https://ecancer.org/en/news/22951-how-a-virus-causes-chromosomal-breakage-leading-to-cancer" target="_blank" rel="noopener" title="ecancer: How a virus causes chromosomal breakage, leading to cancer"><img class="logo" src="assets/outlets/ecancer.png" alt="" loading="lazy"><span class="feat-name">ecancer</span></a><a class="feat-logo" href="https://www.azolifesciences.com/news/20230417/Researchers-Show-How-a-Virus-can-Induce-Cleavage-of-Human-Chromosome-11-to-Cause-Cancer.aspx" target="_blank" rel="noopener" title="AZoLifeSciences: Researchers Show How a Virus can Induce Cleavage of Human Chromosome 11 to Cause Cancer"><img class="logo" src="assets/outlets/azolifesciences.png" alt="" loading="lazy"><span class="feat-name">AZoLifeSciences</span></a><a class="feat-logo" href="https://ecancer.org/en/news/23348-researchers-pinpoint-protein-tied-to-drug-resistance-in-patients-with-lung-cancer" target="_blank" rel="noopener" title="Mass General Brigham: Researchers pinpoint protein tied to drug resistance in patients with lung cancer"><span class="logo txt">MGB</span><span class="feat-name">Mass General Brigham</span></a><a class="feat-logo" href="https://www.ludwigcancerresearch.org/ludwig-link/november-2023/a-novel-mechanism-for-evolution-of-drug-resistance-in-lung-cancers/" target="_blank" rel="noopener" title="Ludwig Cancer Research: A novel mechanism for evolution of drug resistance in lung cancers"><img class="logo" src="assets/outlets/ludwig-cancer-research.png" alt="" loading="lazy"><span class="feat-name">Ludwig Cancer Research</span></a></div></div>
       <div class="press-carousel" aria-roledescription="carousel" aria-label="Press highlights">
         <button type="button" class="pnav prev" aria-label="Previous articles">&#8249;</button>
         <div class="press-track" tabindex="0">
+            <a class="press" href="https://www.npr.org/2025/04/24/nx-s1-5374086/toxin-may-be-factor-in-rise-of-colonrectal-cancer-in-younger-people-study-finds" target="_blank" rel="noopener">
+              <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/npr.png" alt="" loading="lazy"></span></span>
+              <span class="press-body">
+                <span class="press-meta"><span class="outlet">NPR</span><span class="date">Apr 2025</span></span>
+                <span class="press-head">Toxin may be factor in rise of colorectal cancer in younger people, study finds</span>
+                <span class="press-paper">On our Nature paper: Colibactin and early-onset colorectal cancer</span>
+                <span class="press-read">Read article &#8594;</span>
+              </span>
+            </a>
+            <a class="press" href="https://www.npr.org/sections/shots-health-news/2025/04/25/g-s1-62623/colon-cancer-gut-health-microbiome-young" target="_blank" rel="noopener">
+              <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/npr.png" alt="" loading="lazy"></span></span>
+              <span class="press-body">
+                <span class="press-meta"><span class="outlet">NPR</span><span class="date">Apr 2025</span></span>
+                <span class="press-head">Damage from gut bacteria may play a role in the rise in colon cancer in young adults</span>
+                <span class="press-paper">On our Nature paper: Colibactin and early-onset colorectal cancer</span>
+                <span class="press-read">Read article &#8594;</span>
+              </span>
+            </a>
             <a class="press" href="https://www.nationalgeographic.com/health/article/gut-toxins-colon-cancer-early-diagnosis" target="_blank" rel="noopener">
               <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/national-geographic.png" alt="" loading="lazy"></span></span>
               <span class="press-body">
@@ -555,20 +583,11 @@
                 <span class="press-read">Read article &#8594;</span>
               </span>
             </a>
-            <a class="press" href="https://sciencedaily.com/releases/2025/04/250423120654.htm" target="_blank" rel="noopener">
-              <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/sciencedaily.png" alt="" loading="lazy"></span></span>
+            <a class="press" href="https://www.usnews.com/news/health-news/articles/2025-04-28/bacterial-toxin-implicated-in-young-adult-colon-cancers" target="_blank" rel="noopener">
+              <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/u-s-news-world-report.png" alt="" loading="lazy"></span></span>
               <span class="press-body">
-                <span class="press-meta"><span class="outlet">ScienceDaily</span><span class="date">Apr 2025</span></span>
-                <span class="press-head">Childhood exposure to bacterial toxin may be triggering colorectal cancer epidemic in younger adults</span>
-                <span class="press-paper">On our Nature paper: Colibactin and early-onset colorectal cancer</span>
-                <span class="press-read">Read article &#8594;</span>
-              </span>
-            </a>
-            <a class="press" href="https://www.discovermagazine.com/childhood-bacteria-exposure-linked-to-early-cancer-risk-47458" target="_blank" rel="noopener">
-              <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/discover.png" alt="" loading="lazy"></span></span>
-              <span class="press-body">
-                <span class="press-meta"><span class="outlet">Discover</span><span class="date">Apr 2025</span></span>
-                <span class="press-head">Childhood Bacteria Exposure Linked to Early Cancer Risk</span>
+                <span class="press-meta"><span class="outlet">U.S. News &amp; World Report</span><span class="date">Apr 2025</span></span>
+                <span class="press-head">Bacterial Toxin Implicated In Young Adult Colon Cancers</span>
                 <span class="press-paper">On our Nature paper: Colibactin and early-onset colorectal cancer</span>
                 <span class="press-read">Read article &#8594;</span>
               </span>
@@ -582,6 +601,51 @@
                 <span class="press-read">Read article &#8594;</span>
               </span>
             </a>
+            <a class="press" href="https://www.yahoo.com/news/gut-toxin-may-critical-piece-184955915.html" target="_blank" rel="noopener">
+              <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/yahoo-news.png" alt="" loading="lazy"></span></span>
+              <span class="press-body">
+                <span class="press-meta"><span class="outlet">Yahoo News</span><span class="date">Apr 2025</span></span>
+                <span class="press-head">Gut toxin may be a &#x27;critical piece of the puzzle&#x27; behind the rise in early-onset colorectal cancer</span>
+                <span class="press-paper">On our Nature paper: Colibactin and early-onset colorectal cancer</span>
+                <span class="press-read">Read article &#8594;</span>
+              </span>
+            </a>
+            <a class="press" href="https://theweek.com/health/colobactin-colorectal-cancer-health" target="_blank" rel="noopener">
+              <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/the-week.png" alt="" loading="lazy"></span></span>
+              <span class="press-body">
+                <span class="press-meta"><span class="outlet">The Week</span><span class="date">Apr 2025</span></span>
+                <span class="press-head">A bacterial toxin could be contributing to the colorectal cancer rise in young people</span>
+                <span class="press-paper">On our Nature paper: Colibactin and early-onset colorectal cancer</span>
+                <span class="press-read">Read article &#8594;</span>
+              </span>
+            </a>
+            <a class="press" href="https://katiecouric.com/health/colon-cancer-study-gut-toxin-colibactin/" target="_blank" rel="noopener">
+              <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/katie-couric-media.png" alt="" loading="lazy"></span></span>
+              <span class="press-body">
+                <span class="press-meta"><span class="outlet">Katie Couric Media</span><span class="date">Apr 2025</span></span>
+                <span class="press-head">Could This Toxin Be Behind the Rise of Early Onset Colon Cancer?</span>
+                <span class="press-paper">On our Nature paper: Colibactin and early-onset colorectal cancer</span>
+                <span class="press-read">Read article &#8594;</span>
+              </span>
+            </a>
+            <a class="press" href="https://www.the-scientist.com/childhood-exposure-to-bacterial-toxin-tied-to-early-onset-colorectal-cancer-72952" target="_blank" rel="noopener">
+              <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/the-scientist.png" alt="" loading="lazy"></span></span>
+              <span class="press-body">
+                <span class="press-meta"><span class="outlet">The Scientist</span><span class="date">2025</span></span>
+                <span class="press-head">Colorectal Cancer and Childhood Exposure to a Common Gut Bacteria</span>
+                <span class="press-paper">On our Nature paper: Colibactin and early-onset colorectal cancer</span>
+                <span class="press-read">Read article &#8594;</span>
+              </span>
+            </a>
+            <a class="press" href="https://www.discovermagazine.com/childhood-bacteria-exposure-linked-to-early-cancer-risk-47458" target="_blank" rel="noopener">
+              <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/discover.png" alt="" loading="lazy"></span></span>
+              <span class="press-body">
+                <span class="press-meta"><span class="outlet">Discover</span><span class="date">Apr 2025</span></span>
+                <span class="press-head">Childhood Bacteria Exposure Linked to Early Cancer Risk</span>
+                <span class="press-paper">On our Nature paper: Colibactin and early-onset colorectal cancer</span>
+                <span class="press-read">Read article &#8594;</span>
+              </span>
+            </a>
             <a class="press" href="https://www.sciencealert.com/?p=159331" target="_blank" rel="noopener">
               <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/sciencealert.png" alt="" loading="lazy"></span></span>
               <span class="press-body">
@@ -591,11 +655,56 @@
                 <span class="press-read">Read article &#8594;</span>
               </span>
             </a>
+            <a class="press" href="https://www.medscape.com/viewarticle/could-kids-gut-bacteria-trigger-young-colorectal-cancer-2025a1000f67" target="_blank" rel="noopener">
+              <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/medscape.png" alt="" loading="lazy"></span></span>
+              <span class="press-body">
+                <span class="press-meta"><span class="outlet">Medscape</span><span class="date">Jun 2025</span></span>
+                <span class="press-head">Could Kids&#x27; Gut Bacteria Trigger Young Colorectal Cancer?</span>
+                <span class="press-paper">On our Nature paper: Colibactin and early-onset colorectal cancer</span>
+                <span class="press-read">Read article &#8594;</span>
+              </span>
+            </a>
+            <a class="press" href="https://news.cancerresearchuk.org/2025/04/23/colibactin-e-coli-early-onset-bowel-cancer/" target="_blank" rel="noopener">
+              <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/cancer-research-uk.png" alt="" loading="lazy"></span></span>
+              <span class="press-body">
+                <span class="press-meta"><span class="outlet">Cancer Research UK</span><span class="date">Apr 2025</span></span>
+                <span class="press-head">E. coli toxin could be linked to rising rates of bowel cancer in younger adults</span>
+                <span class="press-paper">On our Nature paper: Colibactin and early-onset colorectal cancer</span>
+                <span class="press-read">Read article &#8594;</span>
+              </span>
+            </a>
+            <a class="press" href="https://www.sanger.ac.uk/news_item/childhood-exposure-to-bacterial-toxin-may-be-triggering-colorectal-cancer-epidemic-among-the-young/" target="_blank" rel="noopener">
+              <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/wellcome-sanger-institute.png" alt="" loading="lazy"></span></span>
+              <span class="press-body">
+                <span class="press-meta"><span class="outlet">Wellcome Sanger Institute</span><span class="date">Apr 2025</span></span>
+                <span class="press-head">Childhood exposure to bacterial toxin may be triggering colorectal cancer epidemic among the young</span>
+                <span class="press-paper">On our Nature paper: Colibactin and early-onset colorectal cancer</span>
+                <span class="press-read">Read article &#8594;</span>
+              </span>
+            </a>
+            <a class="press" href="https://today.ucsd.edu/story/childhood-exposure-to-bacterial-toxin-may-be-triggering-colorectal-cancer-epidemic-among-the-young" target="_blank" rel="noopener">
+              <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/uc-san-diego-today.png" alt="" loading="lazy"></span></span>
+              <span class="press-body">
+                <span class="press-meta"><span class="outlet">UC San Diego Today</span><span class="date">Apr 2025</span></span>
+                <span class="press-head">Childhood Exposure to Bacterial Toxin May Be Triggering Colorectal Cancer Epidemic Among the Young</span>
+                <span class="press-paper">On our Nature paper: Colibactin and early-onset colorectal cancer</span>
+                <span class="press-read">Read article &#8594;</span>
+              </span>
+            </a>
             <a class="press" href="https://ascopost.com/news/april-2025/childhood-exposure-to-bacterial-toxin-may-trigger-early-onset-colorectal-cancer/" target="_blank" rel="noopener">
               <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><span class="logo big txt">ASCO</span></span></span>
               <span class="press-body">
                 <span class="press-meta"><span class="outlet">The ASCO Post</span><span class="date">Apr 2025</span></span>
                 <span class="press-head">Childhood Exposure to Bacterial Toxin May Trigger Early-Onset Colorectal Cancer</span>
+                <span class="press-paper">On our Nature paper: Colibactin and early-onset colorectal cancer</span>
+                <span class="press-read">Read article &#8594;</span>
+              </span>
+            </a>
+            <a class="press" href="https://sciencedaily.com/releases/2025/04/250423120654.htm" target="_blank" rel="noopener">
+              <span class="press-top"><img class="press-fig" src="assets/pubs/mutographs2025.jpg" alt="" loading="lazy"><span class="press-logo"><img class="logo big" src="assets/outlets/sciencedaily.png" alt="" loading="lazy"></span></span>
+              <span class="press-body">
+                <span class="press-meta"><span class="outlet">ScienceDaily</span><span class="date">Apr 2025</span></span>
+                <span class="press-head">Childhood exposure to bacterial toxin may be triggering colorectal cancer epidemic in younger adults</span>
                 <span class="press-paper">On our Nature paper: Colibactin and early-onset colorectal cancer</span>
                 <span class="press-read">Read article &#8594;</span>
               </span>
@@ -812,6 +921,28 @@
 
   <footer class="footer">© 2026 Ammal Abbasi</footer>
 </div>
+<!--MEDIA-JS-->
+<script>
+(() => {
+  const root = document.querySelector(".press-carousel"); if (!root) return;
+  const track = root.querySelector(".press-track"), cards = [...track.children], dotsBox = document.querySelector(".press-dots");
+  const perView = () => Math.max(1, Math.round(track.clientWidth / cards[0].getBoundingClientRect().width));
+  const pages = () => Math.ceil(cards.length / perView());
+  const page = () => Math.round(track.scrollLeft / (track.scrollWidth - track.clientWidth || 1) * (pages() - 1));
+  const go = p => { const n = pages(); p = (p + n) % n; const c = cards[Math.min(p * perView(), cards.length - 1)]; track.scrollTo({ left: c.offsetLeft - track.offsetLeft, behavior: "smooth" }); };
+  const drawDots = () => { dotsBox.innerHTML = ""; for (let i = 0; i < pages(); i++) { const b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-label", "Go to page " + (i + 1)); b.onclick = () => go(i); dotsBox.appendChild(b); } mark(); };
+  const mark = () => [...dotsBox.children].forEach((d, i) => d.setAttribute("aria-current", i === page()));
+  root.querySelector(".prev").onclick = () => go(page() - 1);
+  root.querySelector(".next").onclick = () => go(page() + 1);
+  track.addEventListener("scroll", () => requestAnimationFrame(mark), { passive: true });
+  addEventListener("resize", drawDots); drawDots();
+  let paused = false; const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  ["mouseenter", "focusin", "touchstart"].forEach(ev => root.addEventListener(ev, () => paused = true, { passive: true }));
+  ["mouseleave", "focusout"].forEach(ev => root.addEventListener(ev, () => paused = false));
+  if (!reduce) setInterval(() => { if (!paused && !document.hidden) go(page() + 1); }, 7000);
+})();
+</script>
+<!--/MEDIA-JS-->
 <!--PUBTABS-JS-->
 <script>
 (() => {
@@ -835,27 +966,5 @@
 })();
 </script>
 <!--/PUBTABS-JS-->
-<!--MEDIA-JS-->
-<script>
-(() => {
-  const root = document.querySelector(".press-carousel"); if (!root) return;
-  const track = root.querySelector(".press-track"), cards = [...track.children], dotsBox = document.querySelector(".press-dots");
-  const perView = () => Math.max(1, Math.round(track.clientWidth / cards[0].getBoundingClientRect().width));
-  const pages = () => Math.ceil(cards.length / perView());
-  const page = () => Math.round(track.scrollLeft / (track.scrollWidth - track.clientWidth || 1) * (pages() - 1));
-  const go = p => { const n = pages(); p = (p + n) % n; const c = cards[Math.min(p * perView(), cards.length - 1)]; track.scrollTo({ left: c.offsetLeft - track.offsetLeft, behavior: "smooth" }); };
-  const drawDots = () => { dotsBox.innerHTML = ""; for (let i = 0; i < pages(); i++) { const b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-label", "Go to page " + (i + 1)); b.onclick = () => go(i); dotsBox.appendChild(b); } mark(); };
-  const mark = () => [...dotsBox.children].forEach((d, i) => d.setAttribute("aria-current", i === page()));
-  root.querySelector(".prev").onclick = () => go(page() - 1);
-  root.querySelector(".next").onclick = () => go(page() + 1);
-  track.addEventListener("scroll", () => requestAnimationFrame(mark), { passive: true });
-  addEventListener("resize", drawDots); drawDots();
-  let paused = false; const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  ["mouseenter", "focusin", "touchstart"].forEach(ev => root.addEventListener(ev, () => paused = true, { passive: true }));
-  ["mouseleave", "focusout"].forEach(ev => root.addEventListener(ev, () => paused = false));
-  if (!reduce) setInterval(() => { if (!paused && !document.hidden) go(page() + 1); }, 7000);
-})();
-</script>
-<!--/MEDIA-JS-->
 </body>
 </html>
