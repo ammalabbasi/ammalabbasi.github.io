@@ -5,14 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <title>Ammal Abbasi</title>
-<meta name="description" content="Ammal Abbasi, PhD. Postdoctoral Scholar in the Alexandrov Lab at UC San Diego, working on cancer genomics, mutational signatures and the cancer microbiome.">
-<meta property="og:title" content="Ammal Abbasi, PhD">
-<meta property="og:description" content="Cancer genomics, mutational signatures and the cancer microbiome. Alexandrov Lab, UC San Diego.">
-<meta property="og:image" content="https://ammalabbasi.github.io/assets/photo.jpg">
 <link rel="icon" href="assets/photo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="Ammal Abbasi, PhD: computational cancer genomicist at UC San Diego studying when microbes damage our DNA, with a focus on early-onset colorectal cancer. Publications, software, press and CV.">
+<link rel="canonical" href="https://ammalabbasi.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://ammalabbasi.github.io/">
+<meta property="og:title" content="Ammal Abbasi, PhD · Cancer genomics &amp; the microbiome">
+<meta property="og:description" content="Ammal Abbasi, PhD: computational cancer genomicist at UC San Diego studying when microbes damage our DNA, with a focus on early-onset colorectal cancer. Publications, software, press and CV.">
+<meta property="og:image" content="https://ammalabbasi.github.io/assets/og-card.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ammal Abbasi, PhD. I study when microbes damage our DNA, and how to stop them.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@AmmalAbbasi">
+<meta name="twitter:title" content="Ammal Abbasi, PhD · Cancer genomics &amp; the microbiome">
+<meta name="twitter:description" content="Ammal Abbasi, PhD: computational cancer genomicist at UC San Diego studying when microbes damage our DNA, with a focus on early-onset colorectal cancer. Publications, software, press and CV.">
+<meta name="twitter:image" content="https://ammalabbasi.github.io/assets/og-card.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Ammal Abbasi", "honorificSuffix": "PhD", "jobTitle": "Postdoctoral Scholar", "url": "https://ammalabbasi.github.io/", "image": "https://ammalabbasi.github.io/assets/photo.jpg", "email": "mailto:amabbasi@ucsd.edu", "worksFor": {"@type": "Organization", "name": "University of California San Diego"}, "alumniOf": [{"@type": "CollegeOrUniversity", "name": "University of California San Diego"}, {"@type": "CollegeOrUniversity", "name": "Mount Holyoke College"}], "knowsAbout": ["Cancer genomics", "Mutational signatures", "Cancer microbiome", "Colibactin", "Early-onset colorectal cancer", "Homologous recombination deficiency"], "sameAs": ["https://scholar.google.com/citations?user=-RKn5p8AAAAJ", "https://orcid.org/0009-0007-2836-4657", "https://github.com/ammalabbasi", "https://www.linkedin.com/in/ammalabbasi/", "https://x.com/AmmalAbbasi", "https://profiles.ucsd.edu/ammal.abbasi"]}</script>
 <style>
   :root {
     color-scheme: light;
@@ -158,6 +169,18 @@
   .news-fig:hover { border-color: var(--teal); }
   .news-fig img { width: 100%; height: 100%; object-fit: contain; display: block; }
   .news-figs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .tagline { font-size: 18px; line-height: 1.5; color: #333; margin: 0 0 14px; max-width: 34em; }
+  .cv-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 8px 16px; border-radius: 999px; background: var(--teal); color: #fff; font-size: 15px; font-weight: 600; transition: background .15s; }
+  .cv-btn:hover { background: #0b7d73; color: #fff; text-decoration: none; }
+  .cv-btn svg { width: 16px; height: 16px; }
+  .outcomes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 16px 0 6px; }
+  .outcomes div { padding: 12px 14px; border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 10px; background: #fff; }
+  .outcomes b { display: block; font-size: 26px; line-height: 1.1; color: var(--teal); }
+  .outcomes span { display: block; font-size: 13px; color: var(--muted); line-height: 1.4; margin-top: 4px; }
+  @media (max-width: 1000px) { .outcomes { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 575px) { .outcomes { grid-template-columns: 1fr 1fr; } .tagline { font-size: 16px; } }
+  .program-fig { margin: 6px 0 16px; padding: 10px; border: 1px solid var(--line); border-radius: 14px; background: #fcfffe; }
+  .program-fig svg { display: block; width: 100%; height: auto; }
 /*CORNER-CSS*/
   /* faint, static BioRender-style illustration tucked into two corners */
   .corner { position: fixed; width: 34vw; max-width: 460px; min-width: 260px; aspect-ratio: 1; pointer-events: none; z-index: 0; opacity: .16; }
@@ -346,7 +369,7 @@
 
   <header class="header">
     <a class="logo" href="#">Ammal Abbasi</a>
-    <nav class="menu"><a href="#about">About</a><a href="#publications">Publications</a><a href="#media">News</a><a href="#software">Software</a><a href="#outreach">Mentoring</a><a href="#cv">CV</a></nav>
+    <nav class="menu"><a href="#about">About</a><a href="#publications">Publications</a><a href="#media">News</a><a href="#software">Software</a><a href="#outreach">Mentoring</a><a href="assets/docs/Ammal_Abbasi_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a></nav>
   </header>
 
   <main class="body">
@@ -354,12 +377,13 @@
       <div class="about-top">
         <img class="picture" src="assets/photo.jpg" alt="Ammal Abbasi">
         <div class="about-info">
-          <p class="about-greeting">Hello World!</p>
-          <p class="about-name-line">I'm <span class="info-name">Ammal Abbasi</span>!</p>
+          <p class="about-name-line">I'm <span class="info-name">Ammal Abbasi</span>, PhD</p>
+          <p class="tagline">I study when microbes damage our DNA, and how to stop them, with a focus on early-onset colorectal cancer.</p>
           <p class="about-title">Postdoctoral Scholar, <a href="https://alexandrov.cloud.ucsd.edu" target="_blank" rel="noopener">Alexandrov Lab</a>, <a href="https://ucsd.edu" target="_blank" rel="noopener">UC San Diego</a></p>
           <p class="about-links">
             <a href="https://scholar.google.com/citations?user=-RKn5p8AAAAJ" target="_blank" rel="noopener">Google Scholar</a><span class="sep">&middot;</span><a href="https://www.linkedin.com/in/ammalabbasi/" target="_blank" rel="noopener">LinkedIn</a><span class="sep">&middot;</span><a href="https://x.com/AmmalAbbasi" target="_blank" rel="noopener">X</a><span class="sep">&middot;</span><a href="https://github.com/ammalabbasi" target="_blank" rel="noopener">GitHub</a><span class="sep">&middot;</span><a href="https://orcid.org/0009-0007-2836-4657" target="_blank" rel="noopener">ORCID</a>
           </p>
+          <a class="cv-btn" href="assets/docs/Ammal_Abbasi_CV.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Download CV</a>
         </div>
       </div>
 
@@ -376,6 +400,56 @@
           <p class="lead-q">When do microbes damage our DNA, and when do they help damaged cells grow?</p>
           <p>Colorectal cancer is rising fastest in younger generations. Colibactin's mutational signature can be acquired in the first decade of life, yet <i>pks</i>+ bacteria are also common in people who never develop cancer, and other microbes, such as <i>Fusobacterium nucleatum</i>, may instead help already-mutated cells expand.</p>
           <p class="aim">My research asks <strong class="teal">when, and under which host and microbial conditions, microbial exposures cause lasting mutations or promote the progression of initiated cells</strong>, and whether those conditions can be changed to prevent colorectal cancer.</p>
+          <figure class="program-fig" aria-label="Research program: map microbial exposure across the life course, define the host and microbial states that permit DNA damage or mutant-cell growth, and test prevention.">
+            <svg viewBox="0 0 760 250" role="img">
+              <defs>
+                <linearGradient id="pfRod" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6f5ec"/><stop offset="1" stop-color="#7fd1bd"/></linearGradient>
+                <linearGradient id="pfPks" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3f0ff"/><stop offset="1" stop-color="#8ab9f1"/></linearGradient>
+                <radialGradient id="pfCell" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#fff0f4"/><stop offset="1" stop-color="#f2adc0"/></radialGradient>
+                <marker id="pfArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0d9488"/></marker>
+              </defs>
+              <!-- panel frames -->
+              <g fill="#fff" stroke="#e3ece9" stroke-width="1.5">
+                <rect x="6" y="8" width="226" height="186" rx="14"/><rect x="267" y="8" width="226" height="186" rx="14"/><rect x="528" y="8" width="226" height="186" rx="14"/>
+              </g>
+              <g font-family="Open Sans, Helvetica, Arial, sans-serif">
+                <text x="22" y="34" font-size="12" font-weight="800" fill="#0d9488">01 · EXPOSURE</text>
+                <text x="283" y="34" font-size="12" font-weight="800" fill="#0d9488">02 · PERMISSIVE STATES</text>
+                <text x="544" y="34" font-size="12" font-weight="800" fill="#0d9488">03 · PREVENTION</text>
+              </g>
+              <!-- 01: life-course timeline -->
+              <line x1="30" y1="150" x2="208" y2="150" stroke="#9aa5b1" stroke-width="2" marker-end="url(#pfArrow)"/>
+              <g fill="#5b6470" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle"><text x="48" y="172">Infancy</text><text x="118" y="172">Adulthood</text><text x="190" y="172">Cancer</text></g>
+              <g stroke="#5b6470" stroke-width="1.6" fill="#fff"><circle cx="48" cy="128" r="9"/><circle cx="118" cy="124" r="11"/></g>
+              <path d="M178 112c8-12 26-12 30 2s-6 26-20 24-18-14-10-26z" fill="url(#pfCell)" stroke="#d97b97" stroke-width="1.6"/><circle cx="192" cy="124" r="5" fill="#9c7fd6"/>
+              <g transform="translate(36 62)"><rect width="46" height="16" rx="8" fill="url(#pfPks)" stroke="#3d7fd1" stroke-width="1.4"/><circle cx="23" cy="8" r="2.2" fill="#c2185b"/></g>
+              <g transform="translate(98 74) rotate(-14)"><rect width="40" height="14" rx="7" fill="url(#pfRod)" stroke="#3fa58c" stroke-width="1.4"/></g>
+              <g transform="translate(150 60) rotate(10)"><rect width="42" height="15" rx="7.5" fill="url(#pfPks)" stroke="#3d7fd1" stroke-width="1.4"/><circle cx="21" cy="7.5" r="2.2" fill="#c2185b"/></g>
+              <text x="119" y="104" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.5" fill="#5b6470" text-anchor="middle">When is <tspan font-style="italic">pks</tspan>+ carriage acquired?</text>
+              <!-- 02: knowledge graph -->
+              <g stroke="#b9c3cf" stroke-width="1.6">
+                <line x1="318" y1="80" x2="380" y2="110"/><line x1="380" y1="110" x2="446" y2="74"/><line x1="380" y1="110" x2="352" y2="160"/><line x1="380" y1="110" x2="430" y2="152"/><line x1="318" y1="80" x2="352" y2="160"/><line x1="446" y1="74" x2="430" y2="152"/>
+              </g>
+              <g stroke-width="1.6">
+                <circle cx="318" cy="80" r="13" fill="url(#pfPks)" stroke="#3d7fd1"/><circle cx="446" cy="74" r="13" fill="url(#pfRod)" stroke="#3fa58c"/>
+                <circle cx="352" cy="160" r="13" fill="#fdecc8" stroke="#d99a36"/><circle cx="430" cy="152" r="13" fill="url(#pfCell)" stroke="#d97b97"/>
+                <circle cx="380" cy="110" r="17" fill="#0d9488" stroke="#0b7d73"/>
+              </g>
+              <g font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10" fill="#5b6470" text-anchor="middle">
+                <text x="318" y="60">microbes</text><text x="446" y="54">community</text><text x="352" y="186">exposures</text><text x="430" y="182">host genotype</text>
+                <text x="380" y="114" fill="#fff" font-weight="700">AI</text>
+              </g>
+              <!-- 03: prevention -->
+              <path d="M641 52l46 16v34c0 32-22 52-46 62-24-10-46-30-46-62V68z" fill="#f0fdfa" stroke="#0d9488" stroke-width="2"/>
+              <path d="M621 108l14 14 26-30" fill="none" stroke="#0d9488" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <g font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="10.5" fill="#5b6470" text-anchor="middle"><text x="641" y="184">Shift microbial states early in life</text></g>
+              <!-- connectors -->
+              <g stroke="#0d9488" stroke-width="2.4" marker-end="url(#pfArrow)"><line x1="236" y1="101" x2="262" y2="101"/><line x1="497" y1="101" x2="523" y2="101"/></g>
+              <!-- bottom: question + tools -->
+              <text x="380" y="222" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#16181d" text-anchor="middle">When do microbes cause lasting mutations, or help mutated cells grow, and can we change that?</text>
+              <text x="380" y="242" font-family="Open Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5b6470" text-anchor="middle">pksProfiler · CMPipeline · mutational signatures · AI-augmented knowledge graphs · experimental collaborators</text>
+            </svg>
+          </figure>
           <ul class="pillars">
             <li><span class="pillar-n">01</span><div><b>Mapping microbial exposure across the life course.</b> Benchmarked tools that detect <i>pks</i>+ bacteria, applied from infancy through adulthood to cancer, to learn when carriage begins, how long it lasts, and which microbial communities come first.</div></li>
             <li><span class="pillar-n">02</span><div><b>AI-augmented knowledge graphs.</b> Combining patient-level microbial and host data with published biology to find the host–microbe interactions behind mutagenesis and the selection of mutant cells, then testing them with experimental collaborators.</div></li>
@@ -396,7 +470,7 @@
               <li class="news-item"><span class="news-date">12/2025</span>Invited talk on HRProfiler at the SoCal Genome Stability Symposium, City of Hope.<img class="news-photo" src="assets/news/cityofhope2025_podium.jpg" alt="Ammal presenting at the SoCal Genome Stability Symposium" loading="lazy"></li>
               <li class="news-item"><span class="news-date">11/2025</span>Outside the lab: ran my first marathon!<img class="news-photo" src="assets/life/marathon2025_bib.jpg" style="max-height: 330px; object-position: center 78%" alt="Ammal and a friend with her bib before her first marathon" loading="lazy"></li>
               <li class="news-item"><span class="news-date">07/2025</span>My first-author paper <a href="https://doi.org/10.1158/0008-5472.CAN-24-2639" target="_blank" rel="noopener"><i>HRProfiler</i></a> published in <i>Cancer Research</i>.<a class="news-fig" href="https://doi.org/10.1158/0008-5472.CAN-24-2639" target="_blank" rel="noopener"><img src="assets/pubs/hrprofiler2025.jpg" alt="HRProfiler graphical abstract" loading="lazy"></a></li>
-              <li class="news-item"><span class="news-date">06/2025</span>Completed my PhD at UC San Diego and started as a postdoctoral scholar in the Alexandrov Lab.<img class="news-photo" src="assets/news/commencement2025.jpg" alt="Ammal in doctoral regalia at UC San Diego, June 2025" loading="lazy"></li>
+              <li class="news-item"><span class="news-date">06/2025</span>Completed my PhD at UC San Diego and started as a postdoctoral scholar in the Alexandrov Lab.</li>
               <li class="news-item"><span class="news-date">05/2025</span>Defended my PhD thesis, <i>Unraveling Mutational and Microbial Patterns in Cancer Genomes</i>, advised by Ludmil Alexandrov.<span class="news-photos"><img class="news-photo" src="assets/news/defense2025_talk.jpg" alt="Ammal presenting her PhD thesis defense" loading="lazy" style="object-position: 88% 60%"><img class="news-photo" src="assets/news/defense2025.jpg" alt="Ammal with friends and colleagues after her PhD defense" loading="lazy"></span></li>
               <li class="news-item"><span class="news-date">04/2025</span>Mutographs colorectal cancer study published in <i>Nature</i>: <a href="https://doi.org/10.1038/s41586-025-09025-8" target="_blank" rel="noopener"><i>Geographic and age variations in mutational processes in colorectal cancer</i></a>.<a class="news-fig" href="https://doi.org/10.1038/s41586-025-09025-8" target="_blank" rel="noopener"><img src="assets/pubs/mutographs2025.jpg" alt="Figure from the Mutographs Nature paper" loading="lazy"></a></li>
               <li class="news-item"><span class="news-date">04/2025</span>Tobacco-smoke mutagenesis in head and neck cancer published in <a href="https://doi.org/10.1038/s41588-025-02134-0" target="_blank" rel="noopener"><i>Nature Genetics</i></a>.<a class="news-fig" href="https://doi.org/10.1038/s41588-025-02134-0" target="_blank" rel="noopener"><img src="assets/pubs/tobacco2025.jpg" alt="Figure from the Nature Genetics paper" loading="lazy"></a></li>
@@ -845,6 +919,13 @@
 
     <section id="outreach">
       <h2 class="sec-heading">Mentoring, Outreach <span class="teal">&amp; Leadership</span></h2>
+      <div class="outcomes">
+        <div><b>7</b><span>trainees mentored since 2021</span></div>
+        <div><b>4</b><span>graduate &amp; undergraduate</span></div>
+        <div><b>3</b><span>high school students</span></div>
+        <div><b>1</b><span>AACR 2026 poster by mentees</span></div>
+        <div><b>1</b><span>mentee now in a PhD program, MD Anderson</span></div>
+      </div>
       <div class="bullets">
         <div>
           <h3>Mentoring</h3>
